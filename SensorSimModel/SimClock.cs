@@ -3,13 +3,19 @@ using SensorSimDependancies;
 
 namespace SensorSimModel;
 
-public class Clock : IClock
+public class SimClock : IClock
 {
     private Stopwatch Stopwatch {get; set;} = new();
-    
+
+
+    public TimeSpan GetElapsedTime()
+    {
+        return Stopwatch.Elapsed;
+    }
     public Stopwatch StartStopwatch()
     {
-        return Stopwatch.StartNew();
+        Stopwatch.Start();
+        return Stopwatch;
     }
 
     public void StopStopwatch()

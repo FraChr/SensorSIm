@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorSimUI", "SensorSimUI\SensorSimUI.csproj", "{B3798F34-8B11-4643-B463-5570C6505F4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorSimModel", "SensorSimModel\SensorSimModel.csproj", "{8F67B71F-285F-40B6-87FE-EF05F17EFD61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorSimDependancies", "SensorSimDependancies\SensorSimDependancies.csproj", "{3E161DFD-5438-465A-983F-9F7C6DDD7CCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorSimTests", "SensorSimTests\SensorSimTests.csproj", "{546324FB-8E9D-49D4-8147-2C2E82B71146}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorSimServices", "SensorSimServices\SensorSimServices.csproj", "{D513240F-F368-4ACC-8022-92762732914A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorSimLogic", "SensorSimLogic\SensorSimLogic.csproj", "{160D8E35-1813-4AD3-BF8B-1AE837E7B8DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3798F34-8B11-4643-B463-5570C6505F4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3798F34-8B11-4643-B463-5570C6505F4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3798F34-8B11-4643-B463-5570C6505F4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3798F34-8B11-4643-B463-5570C6505F4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F67B71F-285F-40B6-87FE-EF05F17EFD61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F67B71F-285F-40B6-87FE-EF05F17EFD61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F67B71F-285F-40B6-87FE-EF05F17EFD61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F67B71F-285F-40B6-87FE-EF05F17EFD61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E161DFD-5438-465A-983F-9F7C6DDD7CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E161DFD-5438-465A-983F-9F7C6DDD7CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E161DFD-5438-465A-983F-9F7C6DDD7CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E161DFD-5438-465A-983F-9F7C6DDD7CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{546324FB-8E9D-49D4-8147-2C2E82B71146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{546324FB-8E9D-49D4-8147-2C2E82B71146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{546324FB-8E9D-49D4-8147-2C2E82B71146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{546324FB-8E9D-49D4-8147-2C2E82B71146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D513240F-F368-4ACC-8022-92762732914A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D513240F-F368-4ACC-8022-92762732914A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D513240F-F368-4ACC-8022-92762732914A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D513240F-F368-4ACC-8022-92762732914A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{160D8E35-1813-4AD3-BF8B-1AE837E7B8DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160D8E35-1813-4AD3-BF8B-1AE837E7B8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{160D8E35-1813-4AD3-BF8B-1AE837E7B8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{160D8E35-1813-4AD3-BF8B-1AE837E7B8DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
