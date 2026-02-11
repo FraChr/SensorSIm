@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
 using SensorSimDependancies;
+using SensorSimDependancies.ModelInterfaces;
 using SensorSimLogic;
 
 namespace SensorSimUI;
@@ -11,20 +12,17 @@ namespace SensorSimUI;
 public partial class MainWindow : Window
 {
     private readonly DispatcherTimer _displayTimer = new();
-    private readonly IClock _clock;
     
     public MainWindow(IClock clock)
     {
         InitializeComponent();
-        /*_clock = clock;*/
 
         var sim = new SimTime();
         _displayTimer.Interval = TimeSpan.FromMilliseconds(10);
-        _displayTimer.Tick += (s, e) =>
+        _displayTimer.Tick += (sender, eventArgs) =>
         {
-            Timer.Text = sim.hh().ToString(@"hh\:mm\:ss");
+            Timer.Text = sim.GetTime().ToString(@"hh\:mm\:ss");
         };
         _displayTimer.Start();
-        
     }
 }

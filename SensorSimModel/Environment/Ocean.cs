@@ -1,6 +1,6 @@
 ﻿namespace SensorSimModel.Environment;
 
-public class Ocean
+public class Ocean : Water
 {
-    
+    public double SaltLevel { get; set; }
 }

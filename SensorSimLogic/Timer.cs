@@ -1,5 +1,6 @@
 ﻿using SensorSimDependancies;
 using System.Timers;
+using SensorSimDependancies.ModelInterfaces;
 using SensorSimModel;
 using Timer = System.Threading.Timer;
 
@@ -14,7 +15,7 @@ public class SimTime
         _clock.StartStopwatch();
     }
     
-    public TimeSpan hh()
+    public TimeSpan GetTime()
     {
         return _clock.GetElapsedTime();
     }
