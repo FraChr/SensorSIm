@@ -2,5 +2,5 @@
 
 public interface IMainLogic
 {
-    
+    public void Init();
 }

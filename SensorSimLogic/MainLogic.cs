@@ -1,6 +1,16 @@
-﻿namespace SensorSimLogic;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SensorSimDependancies.LogicInterfaces;
+using SensorSimModel.Sensor;
 
-public class MainLogic
+namespace SensorSimLogic;
+
+public class MainLogic : IMainLogic
 {
-    
+    public void Init()
+    {
+        var services = new ServiceCollection();
+        
+        var serviceProvider = services.BuildServiceProvider();
+        
+    }
 }

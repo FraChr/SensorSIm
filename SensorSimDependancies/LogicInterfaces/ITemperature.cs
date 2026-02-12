@@ -1,6 +1,6 @@
 ﻿namespace SensorSimDependancies.LogicInterfaces;
 
-public interface Temperature
+public interface ITemperature
 {
     public double Temperature { get; set; }
     public string Name { get; set; }

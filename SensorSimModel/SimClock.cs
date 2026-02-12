@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using SensorSimDependancies;
 using SensorSimDependancies.ModelInterfaces;
 
 namespace SensorSimModel;
@@ -7,8 +6,7 @@ namespace SensorSimModel;
 public class SimClock : IClock
 {
     private Stopwatch Stopwatch {get; set;} = new();
-
-
+    
     public TimeSpan GetElapsedTime()
     {
         return Stopwatch.Elapsed;

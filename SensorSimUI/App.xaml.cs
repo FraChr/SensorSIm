@@ -13,18 +13,26 @@ public partial class App : Application
 
     public App()
     {
-        var services = new ServiceCollection();
-        services.AddAppServices();
-        services.AddSingleton<MainWindow>();
-        
+        var services = AddViewServices();
         _serviceProvider = services.BuildServiceProvider();
     }
 
     protected override void OnStartup(StartupEventArgs e)
     {
-        var mainWindow = _serviceProvider.GetService<MainWindow>();
-        mainWindow.Show();
-        
         base.OnStartup(e);
+        
+        var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+        mainWindow.Show();
+    }
+
+    private IServiceCollection AddViewServices()
+    {
+        var services = new ServiceCollection();
+        services.AddAppServices();
+        services.AddSingleton<SensorViewModel>();
+        services.AddSingleton<MainViewModel>();
+        services.AddSingleton<MainWindow>();
+
+        return services;
     }
 }
