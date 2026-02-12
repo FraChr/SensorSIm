@@ -1,6 +1,6 @@
 ﻿namespace SensorSimModel.Environment;
 
-public class Water() : EnvironmentBase("Blue")
+public abstract class Water : EnvironmentBase
 {
     public double Deapth { get; set; }
 }
