@@ -22,22 +22,11 @@
             </TextBlock>
         </StackPanel>
         
-        <DockPanel Grid.Column="0" Grid.Row="0">
-            <ToolBar DockPanel.Dock="Top" >
-                <Button>test a</Button>
-                <Button>test a</Button>
-                <Button>test a</Button>
-                <Button>test a</Button>
-                <Button>test a</Button>
-                <Button>test a</Button>
-                <Button>test a</Button>
-                <Button>test a</Button>
-                <Button>test a</Button>
-                <Button>test a</Button>
-                <Button>test a</Button>
-                <Button>test a</Button>
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <ToolBar DataContext="{Binding SensorVm}">
+                <TextBlock Text="{Binding TempText}"></TextBlock>
             </ToolBar>
             <TextBlock>Environment</TextBlock>
-        </DockPanel>
+        </StackPanel>
     </Grid>
 </Window>
