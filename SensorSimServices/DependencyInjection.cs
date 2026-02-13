@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SensorSimDependancies;
 using SensorSimDependancies.LogicInterfaces;
 using SensorSimDependancies.ModelInterfaces;
 using SensorSimModel;

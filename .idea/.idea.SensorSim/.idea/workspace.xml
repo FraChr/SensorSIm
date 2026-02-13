@@ -8,18 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75c1f8bb-9965-4444-a120-4edc088130f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SensorSimDependancies/ModelInterfaces/IOcean.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SensorSimLogic/MainLogic.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SensorSimTests/ModelTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimUI/ClockViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SensorSim/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SensorSim/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSim.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSim.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimLogic/Timer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimModel/Environment/EnvironmentBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Environment/EnvironmentBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimModel/Environment/Ocean.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Environment/Ocean.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimModel/Environment/Water.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Environment/Water.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimModel/SensorBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Sensor/SensorBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimModel/SimClock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/SimClock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimLogic/MainLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimLogic/MainLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimModel/Sensor/TempSensor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Sensor/TempSensor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimModel/SensorSimModel.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/SensorSimModel.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimServices/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimServices/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimUI/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/App.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimUI/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/MainViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml.cs" afterDir="false" />
     </list>
@@ -48,23 +44,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.SensorSimUI.executor&quot;: &quot;Run&quot;,
-    &quot;74d78177-0604-4cce-80d6-e9b56cc9aac0.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.SensorSimUI.executor": "Run",
+    "74d78177-0604-4cce-80d6-e9b56cc9aac0.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected=".NET Project.SensorSimUI">
+}]]></component>
+  <component name="RunManager">
     <configuration name="SensorSimUI" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -100,6 +96,7 @@
       <workItem from="1770728199755" duration="6772000" />
       <workItem from="1770798942110" duration="13453000" />
       <workItem from="1770882262551" duration="6518000" />
+      <workItem from="1770969112649" duration="10146000" />
     </task>
     <servers />
   </component>

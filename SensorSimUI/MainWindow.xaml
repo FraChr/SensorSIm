@@ -16,7 +16,7 @@
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Column="1" Grid.Row="0" Margin="10">
-            <TextBlock Name="Timer" Text="00:00:00" Margin="5" Padding="5" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock Name="Timer" Text="{Binding ClockVm.TimeView}" Margin="5" Padding="5" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" />
             <TextBlock DockPanel.Dock="Right" Margin="5">
                 SENSOR DATA READING 
             </TextBlock>

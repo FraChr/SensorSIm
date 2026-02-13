@@ -1,6 +1,38 @@
-﻿namespace SensorSimUI;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Threading;
+using SensorSimDependancies.ModelInterfaces;
 
-public class ClockViewModel
+namespace SensorSimUI;
+
+public class ClockViewModel : INotifyPropertyChanged
 {
-    
+    private IClock _clock;
+
+    private string _timeView;
+    public string TimeView
+    {
+        get => _timeView;
+        set => SetField(ref _timeView, value);
+    }
+
+    public ClockViewModel(IClock clock)
+    {
+        _clock = clock;
+    }
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
+    {
+        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+        field = value;
+        OnPropertyChanged(propertyName);
+        return true;
+    }
 }

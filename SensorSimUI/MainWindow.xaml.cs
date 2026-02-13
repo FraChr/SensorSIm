@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
 using SensorSimDependancies.LogicInterfaces;
+using SensorSimDependancies.ModelInterfaces;
 using SensorSimModel;
 using SensorSimModel.Sensor;
 
@@ -12,20 +13,36 @@ namespace SensorSimUI;
 public partial class MainWindow : Window
 {
     private readonly DispatcherTimer _displayTimer = new();
+
+    private ClockViewModel _clockVm;
+    private IClock _clock;
     
-    public MainWindow(MainViewModel mainVm)
+    public MainWindow(MainViewModel mainVm, IClock clock)
     {
         InitializeComponent();
         DataContext = mainVm;
-
-        var clock = new SimClock();
         
+        _clockVm = mainVm.ClockVm;
+        _clock = clock;
+        
+        SetupDisplayTimer();
+        StartTimer();
+    }
+
+    private void SetupDisplayTimer()
+    {
         _displayTimer.Interval = TimeSpan.FromMilliseconds(10);
-        _displayTimer.Tick += (sender, eventArgs) =>
-        {
-            Timer.Text = clock.GetElapsedTime().ToString(@"hh\:mm\:ss");
-        };
-        clock.StartStopwatch();
+        _displayTimer.Tick += OnDisplayTick;
+    }
+
+    private void StartTimer()
+    {
+        _clock.StartStopwatch();
         _displayTimer.Start();
+    }
+    
+    private void OnDisplayTick(object? sender, EventArgs e)
+    {
+        _clockVm.TimeView = _clock.GetElapsedTime().ToString(@"hh\:mm\:ss");
     }
 }

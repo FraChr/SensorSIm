@@ -30,6 +30,7 @@ public partial class App : Application
         var services = new ServiceCollection();
         services.AddAppServices();
         services.AddSingleton<SensorViewModel>();
+        services.AddSingleton<ClockViewModel>();
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<MainWindow>();
 
