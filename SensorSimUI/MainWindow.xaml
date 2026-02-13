@@ -16,17 +16,22 @@
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Column="1" Grid.Row="0" Margin="10">
-            <TextBlock Name="Timer" Text="{Binding ClockVm.TimeView}" Margin="5" Padding="5" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock Text="{Binding ClockVm.TimeView}" Margin="5" Padding="5" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" />
             <TextBlock DockPanel.Dock="Right" Margin="5">
                 SENSOR DATA READING 
             </TextBlock>
         </StackPanel>
         
-        <StackPanel Grid.Column="0" Grid.Row="0">
-            <ToolBar DataContext="{Binding SensorVm}">
-                <TextBlock Text="{Binding TempText}"></TextBlock>
+        <Grid  Grid.Column="0" Grid.Row="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ToolBar Grid.Row="0" DataContext="{Binding SensorVm}">
+                <Button  Content="{Binding TempText}"></Button>
             </ToolBar>
-            <TextBlock>Environment</TextBlock>
-        </StackPanel>
+            <Border Grid.Row="1" Background="{Binding EnvironmentVm.EnvironmentColor}">
+            </Border>
+        </Grid>
     </Grid>
 </Window>

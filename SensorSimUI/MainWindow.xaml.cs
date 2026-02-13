@@ -1,9 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
-using SensorSimDependancies.LogicInterfaces;
 using SensorSimDependancies.ModelInterfaces;
-using SensorSimModel;
-using SensorSimModel.Sensor;
+using SensorSimUI.ViewModels;
 
 namespace SensorSimUI;
 
@@ -14,8 +12,8 @@ public partial class MainWindow : Window
 {
     private readonly DispatcherTimer _displayTimer = new();
 
-    private ClockViewModel _clockVm;
-    private IClock _clock;
+    private readonly ClockViewModel _clockVm;
+    private readonly IClock _clock;
     
     public MainWindow(MainViewModel mainVm, IClock clock)
     {

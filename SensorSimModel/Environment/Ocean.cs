@@ -6,11 +6,11 @@ public class Ocean : Water, IOcean
 {
     public double SaltLevel { get; set; }
     
+    /*EnvironmentColor = "Blue";*/
     public Ocean()
     {
-        EnvrionmentColor = "Blue";
         Temperatures = 0;
         SaltLevel = 0;
-        Deapth = 0;
+        Depth = 0;
     }
 }

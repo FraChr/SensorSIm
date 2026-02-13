@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using SensorSimDependancies.LogicInterfaces;
-using SensorSimModel.Sensor;
 
-namespace SensorSimUI;
+namespace SensorSimUI.ViewModels;
 
-public class SensorViewModel : INotifyPropertyChanged
+public sealed class SensorViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
     
@@ -18,12 +17,12 @@ public class SensorViewModel : INotifyPropertyChanged
         TempText = _temperature.Name;
     }
 
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
+    private bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
     {
         if (EqualityComparer<T>.Default.Equals(field, value)) return false;
         field = value;

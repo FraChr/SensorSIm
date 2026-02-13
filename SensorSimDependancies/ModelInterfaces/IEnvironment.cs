@@ -1,9 +1,7 @@
 ﻿namespace SensorSimDependancies.ModelInterfaces;
 
-public interface IOcean : IWater
+public interface IEnvironment
 {
-    public double SaltLevel { get; set; }
-    public double Depth { get; set; }
     public string EnvironmentColor { get; set; }
     public double Temperatures { get; set; }
 }

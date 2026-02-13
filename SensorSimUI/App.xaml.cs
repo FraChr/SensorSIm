@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using SensorSimServices;
+using SensorSimUI.ViewModels;
 
 namespace SensorSimUI;
 
@@ -13,7 +14,7 @@ public partial class App : Application
 
     public App()
     {
-        var services = AddViewServices();
+        var services = AddUiServices();
         _serviceProvider = services.BuildServiceProvider();
     }
 
@@ -22,13 +23,18 @@ public partial class App : Application
         base.OnStartup(e);
         
         var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+        var vm = new TestUi();
+        var window = vm.CreateWindow();
+        window.Show();
         mainWindow.Show();
     }
 
-    private IServiceCollection AddViewServices()
+    private IServiceCollection AddUiServices()
     {
         var services = new ServiceCollection();
         services.AddAppServices();
+        services.AddSingleton<SensorReadingsViewModel>();
+        services.AddSingleton<EnvironmentViewModel>();
         services.AddSingleton<SensorViewModel>();
         services.AddSingleton<ClockViewModel>();
         services.AddSingleton<MainViewModel>();

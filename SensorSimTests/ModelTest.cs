@@ -15,8 +15,8 @@ public class ModelTest
         var serviceProvider = services.BuildServiceProvider();
         var ocean = serviceProvider.GetService<IOcean>();
         
-        Assert.NotNull(ocean.EnvrionmentColor);
-        Assert.NotNull(ocean.Deapth);
+        Assert.NotNull(ocean.EnvironmentColor);
+        Assert.NotNull(ocean.Depth);
         Assert.NotNull(ocean.SaltLevel);
         Assert.NotNull(ocean.Temperatures);
     }

@@ -1,12 +1,14 @@
-﻿namespace SensorSimModel.Environment;
+﻿using SensorSimDependancies.ModelInterfaces;
+
+namespace SensorSimModel.Environment;
 
 public abstract class EnvironmentBase
 {
-    public string EnvrionmentColor { get; set; }
+    public string EnvironmentColor { get; set; }
     public double Temperatures { get; set; }
 
-    /*public EnvironmentBase(string environmentColor)
+    public EnvironmentBase(string environmentColor)
     {
-        EnvrionmentColor = environmentColor;
-    }*/
+        EnvironmentColor = environmentColor;
+    }
 }

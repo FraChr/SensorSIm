@@ -1,19 +1,10 @@
-﻿using System.Windows.Threading;
+﻿using SensorSimUI.ViewModels;
 
 namespace SensorSimUI;
 
-public class MainViewModel
+public class MainViewModel(SensorViewModel sensorVm, ClockViewModel clockVm, EnvironmentViewModel envVm)
 {
-    private readonly DispatcherTimer _displayTimer = new();
-    public SensorViewModel SensorVm  { get; set; }
-    public ClockViewModel ClockVm { get; set; }
-
-    public MainViewModel(SensorViewModel sensorVm,  ClockViewModel clockVm)
-    {
-        SensorVm = sensorVm;
-        ClockVm = clockVm;
-    }
-
-    
-    
+    public SensorViewModel SensorVm  { get; set; } = sensorVm;
+    public ClockViewModel ClockVm { get; set; } = clockVm;
+    public EnvironmentViewModel EnvironmentVm { get; set; } = envVm;
 }

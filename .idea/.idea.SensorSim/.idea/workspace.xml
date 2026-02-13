@@ -8,16 +8,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75c1f8bb-9965-4444-a120-4edc088130f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SensorSimUI/ClockViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimDependancies/ModelInterfaces/IEnvironment.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimDependancies/ModelInterfaces/IWater.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimUI/TestUi.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimUI/ViewModels/ClockViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimUI/ViewModels/EnvironmentViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimUI/ViewModels/SensorReadingsViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SensorSim/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SensorSim/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimLogic/MainLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimLogic/MainLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSim.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSim.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimDependancies/ModelInterfaces/IOcean.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimDependancies/ModelInterfaces/IOcean.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimModel/Environment/EnvironmentBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Environment/EnvironmentBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimModel/Environment/Ocean.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Environment/Ocean.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimModel/Environment/Water.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Environment/Water.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimModel/Sensor/TempSensor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Sensor/TempSensor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimModel/SensorSimModel.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/SensorSimModel.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimServices/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimServices/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimTests/ModelTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimTests/ModelTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimUI/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/App.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimUI/ClockViewModel.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimUI/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/MainViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimUI/SensorViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/ViewModels/SensorViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +43,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/18d0c58f56d62b50aecfa79cf9bad48aac765bf1311e52798225ab8bc6a2e2/ArgumentNullException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/51986e38149d7168a48244177b10e8ce2c0faf1d4b35fbbeaf26cb3d652320/CallSiteFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8f5fa7fe1fb0e5c873c5de69c1f95a72f3243c42ae84c646918e4aa655a7c9/Clock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9282df70362b17ffae24d589dffe1e9bc7a730f1d7622551e6e964f/MethodBaseInvoker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SensorSimUI/obj/Debug/net10.0-windows/App.g.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -96,7 +109,7 @@
       <workItem from="1770728199755" duration="6772000" />
       <workItem from="1770798942110" duration="13453000" />
       <workItem from="1770882262551" duration="6518000" />
-      <workItem from="1770969112649" duration="10146000" />
+      <workItem from="1770969112649" duration="16975000" />
     </task>
     <servers />
   </component>
