@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
+using SensorSimDependancies.LogicInterfaces;
 using SensorSimServices;
 using SensorSimUI.ViewModels;
 
@@ -23,9 +24,6 @@ public partial class App : Application
         base.OnStartup(e);
         
         var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
-        var vm = new TestUi();
-        var window = vm.CreateWindow();
-        window.Show();
         mainWindow.Show();
     }
 
