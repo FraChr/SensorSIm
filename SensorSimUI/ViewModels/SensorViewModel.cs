@@ -9,12 +9,12 @@ public sealed class SensorViewModel : INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
     
     private readonly ITemperature _temperature;
-    public string? TempText { get; set; }
+    public string? TempName { get; set; }
 
     public SensorViewModel(ITemperature temperature)
     {
         _temperature = temperature;
-        TempText = _temperature.Name;
+        TempName = _temperature.Name;
     }
 
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
@@ -29,4 +29,7 @@ public sealed class SensorViewModel : INotifyPropertyChanged
         OnPropertyChanged(propertyName);
         return true;
     }
+    
+ 
+    
 }

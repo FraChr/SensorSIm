@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Threading;
 using SensorSimDependancies.ModelInterfaces;
 using SensorSimUI.ViewModels;
@@ -42,5 +44,35 @@ public partial class MainWindow : Window
     private void OnDisplayTick(object? sender, EventArgs e)
     {
         _clockVm.TimeView = _clock.GetElapsedTime().ToString(@"hh\:mm\:ss");
+    }
+
+
+    private void Sensor1_MouseMove(object sender, MouseEventArgs e)
+    {
+        if (e.LeftButton != MouseButtonState.Pressed)
+            return;
+
+        if (sender is FrameworkElement element && element.DataContext is SensorViewModel sensor)
+        {
+            DragDrop.DoDragDrop(element, sensor, DragDropEffects.Copy);
+        }
+    }
+
+    private void Environment_Drop(object sender, DragEventArgs e)
+    {
+        if (e.Data.GetDataPresent(typeof(SensorViewModel)))
+        {
+            var sensor = e.Data.GetData(typeof(SensorViewModel)) as SensorViewModel;
+
+            TextBlock tb = new TextBlock();
+            tb.Text = sensor.TempName;
+
+            Point dropPos = e.GetPosition(dropCanvas);
+
+            Canvas.SetLeft(tb, dropPos.X);
+            Canvas.SetTop(tb, dropPos.Y);
+            
+            dropCanvas.Children.Add(tb);
+        }
     }
 }

@@ -16,7 +16,8 @@
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Column="1" Grid.Row="0" Margin="10">
-            <TextBlock Text="{Binding ClockVm.TimeView}" Margin="5" Padding="5" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock 
+                Text="{Binding ClockVm.TimeView}" Margin="5" Padding="5" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" />
             <TextBlock DockPanel.Dock="Right" Margin="5">
                 SENSOR DATA READING 
             </TextBlock>
@@ -28,9 +29,18 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <ToolBar Grid.Row="0" DataContext="{Binding SensorVm}">
-                <Button  Content="{Binding TempText}"></Button>
+                <TextBlock 
+                    Background="Transparent"
+                    x:Name="Sensor1"
+                    MouseMove="Sensor1_MouseMove"
+                    AllowDrop="True"
+                    Text="{Binding TempName}"></TextBlock>
             </ToolBar>
-            <Border Grid.Row="1" Background="{Binding EnvironmentVm.EnvironmentColor}">
+            <Border Grid.Row="1" Background="{Binding EnvironmentVm.EnvironmentColor}" 
+                    
+                    AllowDrop="True"
+                    Drop="Environment_Drop">
+                <Canvas x:Name="dropCanvas" />
             </Border>
         </Grid>
     </Grid>
