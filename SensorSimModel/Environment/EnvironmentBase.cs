@@ -1,5 +1,4 @@
-﻿using SensorSimDependancies.ModelInterfaces;
-
+﻿
 namespace SensorSimModel.Environment;
 
 public abstract class EnvironmentBase

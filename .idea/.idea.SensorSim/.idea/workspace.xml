@@ -8,15 +8,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75c1f8bb-9965-4444-a120-4edc088130f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensorDisplayModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensorHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensorLogic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimLogic/EnvironmentHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimLogic/SensorHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimModel/Sensor/SensorDisplayModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SensorSim/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SensorSim/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSim.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSim.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ITemperature.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ITemperature.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimModel/Sensor/SensorBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Sensor/SensorBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimUI/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/App.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimDependancies/ModelInterfaces/IOcean.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimDependancies/ModelInterfaces/IOcean.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimLogic/SensorSimLogic.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimLogic/SensorSimLogic.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimModel/Environment/EnvironmentBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Environment/EnvironmentBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimModel/Environment/Ocean.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Environment/Ocean.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimModel/Sensor/TempSensor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Sensor/TempSensor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimServices/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimServices/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimServices/SensorSimServices.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimServices/SensorSimServices.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimUI/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/MainViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimUI/TestUi.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimUI/SensorSimUI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/SensorSimUI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimUI/ViewModels/EnvironmentViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/ViewModels/EnvironmentViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimUI/ViewModels/SensorViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/ViewModels/SensorViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,9 +46,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1c317d3c9d74e2a6a6c29ad2c9793f35c4bb311022df17adcaee7213c09de2f4/FrameworkElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1e8d22d438c3a3411d46d2edafde28831226bfa2a6cd9a8743cb4d6b1c298/RoutedEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/51986e38149d7168a48244177b10e8ce2c0faf1d4b35fbbeaf26cb3d652320/CallSiteFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/86565180fac817625c1c835dea6e7fde4854e29fc6d36dc39b195b4ad25da/DispatcherTimer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8f5fa7fe1fb0e5c873c5de69c1f95a72f3243c42ae84c646918e4aa655a7c9/Clock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9282df70362b17ffae24d589dffe1e9bc7a730f1d7622551e6e964f/MethodBaseInvoker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9d2d5ac5ddeef7dcc1fd364c4d4eeb17238bf9e647bcb6e1d4ac18b7aac8a/UIElement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e7e26078acb7de359a13d6635644f8f87feed8287326c1e94d9019201b86a2/ExceptionWrapper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f3417744d5b42c997a87a5f186112bb16f63a1e952c94afd95fbb2e74b2/DispatcherOperation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SensorSimUI/obj/Debug/net10.0-windows/App.g.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -52,7 +66,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.SensorSimUI.executor": "Debug",
+    ".NET Project.SensorSimUI.executor": "Run",
     "74d78177-0604-4cce-80d6-e9b56cc9aac0.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -104,7 +118,8 @@
       <workItem from="1770882262551" duration="6518000" />
       <workItem from="1770969112649" duration="18362000" />
       <workItem from="1771330318748" duration="1648000" />
-      <workItem from="1771841463208" duration="9070000" />
+      <workItem from="1771841463208" duration="11099000" />
+      <workItem from="1771919708202" duration="19492000" />
     </task>
     <servers />
   </component>

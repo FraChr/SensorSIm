@@ -18,6 +18,11 @@ public sealed class EnvironmentViewModel :  INotifyPropertyChanged
         EnvironmentColor = _ocean.EnvironmentColor;
         
     }
+
+    public void Run()
+    {
+        _ocean.Update();
+    }
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

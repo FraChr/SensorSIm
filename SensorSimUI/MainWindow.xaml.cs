@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
+using SensorSimDependancies.LogicInterfaces;
 using SensorSimDependancies.ModelInterfaces;
 using SensorSimUI.ViewModels;
 
@@ -13,22 +14,55 @@ namespace SensorSimUI;
 public partial class MainWindow : Window
 {
     private readonly DispatcherTimer _displayTimer = new();
+    private readonly DispatcherTimer _sensorTick = new();
+    private readonly DispatcherTimer _environmentTick = new();
 
     private readonly ClockViewModel _clockVm;
     private readonly IClock _clock;
+    private readonly MainViewModel _mainVm;
     
     public MainWindow(MainViewModel mainVm, IClock clock)
     {
         InitializeComponent();
         DataContext = mainVm;
         
+        _mainVm = mainVm;
+        
         _clockVm = mainVm.ClockVm;
         _clock = clock;
         
         SetupDisplayTimer();
         StartTimer();
+        
+        
+        SetupSensorTick();
+        _sensorTick.Start();
+        
+        SetupEnvironmentTick();
+        _environmentTick.Start();
     }
 
+    private void SetupEnvironmentTick()
+    {
+        _environmentTick.Interval = TimeSpan.FromSeconds(2);
+        _environmentTick.Tick += OnEnvironmentTick;
+    }
+
+    private void OnEnvironmentTick(object? sender, EventArgs eventArgs)
+    {
+        _mainVm.EnvironmentVm.Run();
+    }
+    private void SetupSensorTick()
+    {
+        _sensorTick.Interval = TimeSpan.FromSeconds(1);
+        _sensorTick.Tick += OnSensorTick;
+    }
+    private void OnSensorTick(object? sender, EventArgs eventArgs)
+    {
+        if (sender is null) return;
+        _mainVm.SensorVm.RefreshSensors();
+    }
+    
     private void SetupDisplayTimer()
     {
         _displayTimer.Interval = TimeSpan.FromMilliseconds(10);
@@ -44,6 +78,7 @@ public partial class MainWindow : Window
     private void OnDisplayTick(object? sender, EventArgs e)
     {
         _clockVm.TimeView = _clock.GetElapsedTime().ToString(@"hh\:mm\:ss");
+        /*_mainVm.SensorVm.RefreshSensors();*/
     }
 
 
@@ -60,19 +95,27 @@ public partial class MainWindow : Window
 
     private void Environment_Drop(object sender, DragEventArgs e)
     {
-        if (e.Data.GetDataPresent(typeof(SensorViewModel)))
-        {
-            var sensor = e.Data.GetData(typeof(SensorViewModel)) as SensorViewModel;
+        if (!e.Data.GetDataPresent(typeof(SensorViewModel))) return;
+        
+        /*var sensorVm = e.Data.GetData(typeof(SensorViewModel)) as SensorViewModel;
+        if (sensorVm == null) return;*/
+        
+        
+        var sensor = e.Data.GetData(typeof(SensorViewModel)) as SensorViewModel;
+        
+        
+        sensor.SetSensor();
+        
+        
+        var tb = new TextBlock();
+        tb.Text = sensor.TempName;
+        
 
-            TextBlock tb = new TextBlock();
-            tb.Text = sensor.TempName;
+        Point dropPos = e.GetPosition(dropCanvas);
 
-            Point dropPos = e.GetPosition(dropCanvas);
-
-            Canvas.SetLeft(tb, dropPos.X);
-            Canvas.SetTop(tb, dropPos.Y);
+        Canvas.SetLeft(tb, dropPos.X);
+        Canvas.SetTop(tb, dropPos.Y);
             
-            dropCanvas.Children.Add(tb);
-        }
+        dropCanvas.Children.Add(tb);
     }
 }

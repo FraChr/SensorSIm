@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SensorSimDependancies.LogicInterfaces;
 using SensorSimDependancies.ModelInterfaces;
+using SensorSimLogic;
 using SensorSimModel;
 using SensorSimModel.Environment;
 using SensorSimModel.Sensor;
@@ -15,7 +16,16 @@ public static class DependencyInjection
         services.AddSingleton<IOcean, Ocean>();
         services.AddSingleton<IClock, SimClock>();
         /*services.AddSingleton<IOcean, Ocean>();*/
+        
+        //Sensors
         services.AddSingleton<ITemperature, TempSensor>();
+        services.AddSingleton<ISensorLogic, TempSensor>();
+        services.AddSingleton<ISensorDisplayModel, SensorDisplayModel>();
+        
+        //Handler
+        services.AddSingleton<ISensorHandler, SensorHandler>();
+        
+        services.AddSingleton<IMainLogic, MainLogic>();
         return services;
     }
 }

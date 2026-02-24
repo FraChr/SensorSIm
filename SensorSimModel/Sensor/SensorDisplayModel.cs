@@ -1,6 +1,9 @@
-﻿namespace SensorSimModel.Sensor;
+﻿using SensorSimDependancies.LogicInterfaces;
 
-public class SensorDisplayModel
+namespace SensorSimModel.Sensor;
+
+public class SensorDisplayModel : ISensorDisplayModel
 {
-    
+    public string Name { get; set; }
+    public string Temperature { get; set; }
 }

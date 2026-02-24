@@ -19,7 +19,17 @@
             <TextBlock 
                 Text="{Binding ClockVm.TimeView}" Margin="5" Padding="5" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" />
             <TextBlock DockPanel.Dock="Right" Margin="5">
-                SENSOR DATA READING 
+                <ItemsControl ItemsSource="{Binding SensorVm.Sensors}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text=":"/>
+                                <TextBlock Text="{Binding Temperature}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </TextBlock>
         </StackPanel>
         
@@ -31,10 +41,9 @@
             <ToolBar Grid.Row="0" DataContext="{Binding SensorVm}">
                 <TextBlock 
                     Background="Transparent"
-                    x:Name="Sensor1"
                     MouseMove="Sensor1_MouseMove"
                     AllowDrop="True"
-                    Text="{Binding TempName}"></TextBlock>
+                    Text="{Binding TempName}"/>
             </ToolBar>
             <Border Grid.Row="1" Background="{Binding EnvironmentVm.EnvironmentColor}" 
                     
