@@ -5,6 +5,7 @@ namespace SensorSimModel.Environment;
 public class Ocean : Water, IOcean
 {
     public double SaltLevel { get; set; }
+    /*public double Pressure { get; set; }*/
     
     private readonly Random random = new();
 
@@ -12,15 +13,17 @@ public class Ocean : Water, IOcean
     public Ocean()
     {
         Temperatures = 16.2;
+        Pressure = 1.2;
         SaltLevel = 4;
         Depth = 1000;
     }
 
     public void Update()
     {
-        var ran = random.Next(0, 2);
+        var rand = random.Next(0, 2);
         var temp = random.Next(0, 2);
-        if (ran != 1) return;
+        var pressure = random.Next(0, 2);
+        if (rand != 1) return;
 
         if (temp == 0)
         {
