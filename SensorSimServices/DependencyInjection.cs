@@ -24,6 +24,8 @@ public static class DependencyInjection
         
         //Handler
         services.AddSingleton<ISensorHandler, SensorHandler>();
+
+        services.AddSingleton<ISensorFactory, SensorFactory>();
         
         services.AddSingleton<IMainLogic, MainLogic>();
         return services;
