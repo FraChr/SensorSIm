@@ -9,29 +9,34 @@ namespace SensorSimLogic;
 // should also give view model in ui data needed to display a sensor
 public class SensorHandler : ISensorHandler
 {
-    private readonly List<ISensorLogic> _sensors = new();
+    private readonly List<ISensorLogic> _activeSensors = new();
     private readonly IOcean _ocean;
+    private readonly ISensorFactory _sensorFactory;
 
-    public SensorHandler(IOcean ocean)
+    public SensorHandler(IOcean ocean, ISensorFactory sensorFactory)
     {
         _ocean = ocean;
+        _sensorFactory = sensorFactory;
     }
     
     public List<ISensorDisplayModel> RefreshAll()
     {
         var result = new List<ISensorDisplayModel>();
 
-        foreach (var sensor in _sensors)
+        foreach (var sensor in _activeSensors)
         {
-            sensor.Update(_ocean.Temperatures);
+            var value = sensor.GetEnvironmentValue(_ocean);
+            sensor.Update(value);
             result.Add(sensor.ToDisplayModel());
         }
         
         return result;
     }
 
-    public void CreateSensor()
+    public ISensorLogic CreateSensor(string sensorType)
     {
-        _sensors.Add(new TempSensor());
+        var sensor = _sensorFactory.Create(sensorType);
+        _activeSensors.Add(sensor);
+        return sensor;
     }
 }
