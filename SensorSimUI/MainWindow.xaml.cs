@@ -82,40 +82,28 @@ public partial class MainWindow : Window
     }
 
 
-    private void Sensor1_MouseMove(object sender, MouseEventArgs e)
+    private void SensorDrag(object sender, MouseEventArgs e)
     {
         if (e.LeftButton != MouseButtonState.Pressed)
             return;
-
-        if (sender is FrameworkElement element && element.DataContext is SensorViewModel sensor)
+        
+        if (sender is FrameworkElement element && element.DataContext is ISensorDisplayModel sensor)
         {
-            DragDrop.DoDragDrop(element, sensor, DragDropEffects.Copy);
+            DragDrop.DoDragDrop(element, sensor.Id, DragDropEffects.Copy);
         }
     }
 
     private void Environment_Drop(object sender, DragEventArgs e)
     {
-        if (!e.Data.GetDataPresent(typeof(SensorViewModel))) return;
         
-        /*var sensorVm = e.Data.GetData(typeof(SensorViewModel)) as SensorViewModel;
-        if (sensorVm == null) return;*/
+        if(!e.Data.GetDataPresent(typeof(string))) return;
         
-        
-        var sensor = e.Data.GetData(typeof(SensorViewModel)) as SensorViewModel;
-        
-        
-        sensor.SetSensor();
-        
-        
-        var tb = new TextBlock();
-        tb.Text = sensor.TempName;
-        
+        var sensorId = e.Data.GetData(typeof(string)) as string;
+        if (sensorId is null) return;
 
         Point dropPos = e.GetPosition(dropCanvas);
-
-        Canvas.SetLeft(tb, dropPos.X);
-        Canvas.SetTop(tb, dropPos.Y);
-            
-        dropCanvas.Children.Add(tb);
+        
+        _mainVm.SensorVm.SetSensor(sensorId, dropPos.X, dropPos.Y);
+        
     }
 }

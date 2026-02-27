@@ -19,13 +19,13 @@
             <TextBlock 
                 Text="{Binding ClockVm.TimeView}" Margin="5" Padding="5" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" />
             <TextBlock DockPanel.Dock="Right" Margin="5">
-                <ItemsControl ItemsSource="{Binding SensorVm.Sensors}">
+                <ItemsControl ItemsSource="{Binding SensorVm.ActiveSensors}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding Name}"/>
                                 <TextBlock Text=":"/>
-                                <TextBlock Text="{Binding Temperature}"/>
+                                <TextBlock Text="{Binding Value}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -39,17 +39,45 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <ToolBar Grid.Row="0" DataContext="{Binding SensorVm}">
-                <TextBlock 
-                    Background="Transparent"
-                    MouseMove="Sensor1_MouseMove"
-                    AllowDrop="True"
-                    Text="{Binding TempName}"/>
+                <ItemsControl ItemsSource="{Binding AvailableSensorTypes}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Background="Transparent"
+                                MouseMove="SensorDrag"
+                                AllowDrop="True"
+                                Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </ToolBar>
             <Border Grid.Row="1" Background="{Binding EnvironmentVm.EnvironmentColor}" 
                     
                     AllowDrop="True"
                     Drop="Environment_Drop">
-                <Canvas x:Name="dropCanvas" />
+                
+                <ItemsControl x:Name="dropCanvas" ItemsSource="{Binding SensorVm.ActiveSensors}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="Canvas.Left" Value="{Binding XPosition}" />
+                            <Setter Property="Canvas.Top" Value="{Binding YPosition}" />
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                    
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="LightBlue" Padding="4" BorderBrush="DarkBlue" BorderThickness="1">
+                                <TextBlock Text="{Binding Name}" />
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </Border>
         </Grid>
     </Grid>
