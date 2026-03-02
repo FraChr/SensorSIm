@@ -2,6 +2,6 @@
 
 public interface ISensor
 {
-    /*public Location Location { get; set; }*/
+    public string Name { get; set; }
     public DateTime TimeStamp { get; set; }
 }

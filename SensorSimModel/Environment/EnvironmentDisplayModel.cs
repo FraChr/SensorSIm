@@ -1,6 +1,8 @@
-﻿namespace SensorSimModel.Environment;
+﻿using SensorSimDependancies.LogicInterfaces;
 
-public class EnvironmentDisplayModel
+namespace SensorSimModel.Environment;
+
+public class EnvironmentDisplayModel : IEnvironmentDisplayModel
 {
-    
+    public string Name { get; set; }
 }

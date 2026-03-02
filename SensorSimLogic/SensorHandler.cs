@@ -1,6 +1,5 @@
 ﻿using SensorSimDependancies.LogicInterfaces;
 using SensorSimDependancies.ModelInterfaces;
-using SensorSimModel.Sensor;
 
 namespace SensorSimLogic;
 
@@ -12,11 +11,13 @@ public class SensorHandler : ISensorHandler
     private readonly List<ISensorLogic> _activeSensors = new();
     private readonly IOcean _ocean;
     private readonly ISensorFactory _sensorFactory;
+    private readonly IEnvironmentHandler _environmentHandler;
 
-    public SensorHandler(IOcean ocean, ISensorFactory sensorFactory)
+    public SensorHandler(IOcean ocean, ISensorFactory sensorFactory, IEnvironmentHandler environmentHandler)
     {
         _ocean = ocean;
         _sensorFactory = sensorFactory;
+        _environmentHandler = environmentHandler;
     }
     
     public List<ISensorDisplayModel> RefreshAll()

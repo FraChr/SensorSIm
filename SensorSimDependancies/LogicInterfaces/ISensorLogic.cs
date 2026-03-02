@@ -4,7 +4,6 @@ namespace SensorSimDependancies.LogicInterfaces;
 
 public interface ISensorLogic
 {
-    string SensorType { get; }
     public void Update(double value);
     ISensorDisplayModel ToDisplayModel();
     

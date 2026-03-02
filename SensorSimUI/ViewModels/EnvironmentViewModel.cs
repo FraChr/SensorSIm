@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using SensorSimDependancies.LogicInterfaces;
 using SensorSimDependancies.ModelInterfaces;
 
 namespace SensorSimUI.ViewModels;
@@ -9,19 +10,25 @@ public sealed class EnvironmentViewModel :  INotifyPropertyChanged
 
     public event PropertyChangedEventHandler? PropertyChanged;
     
-    private IOcean _ocean;
+    private IEnvironmentHandler _environmentHandler;
     public string EnvironmentColor { get; set; }
+    private readonly IEnvironmentFactory _environmentFactory;
 
-    public EnvironmentViewModel(IOcean ocean)
+    public IEnumerable<IEnvironmentDisplayModel> AvailableEnvironments { get; set; }
+    
+    
+    public EnvironmentViewModel(IEnvironmentHandler environmentHandler, IEnvironmentFactory environmentFactory)
     {
-        _ocean = ocean;
-        EnvironmentColor = _ocean.EnvironmentColor;
+        _environmentHandler = environmentHandler;
+        _environmentFactory = environmentFactory;
+        EnvironmentColor = _environmentHandler.GetEnvironmentColor();
         
+        AvailableEnvironments = _environmentFactory.GetAvailableEnvironments();
     }
 
     public void Run()
     {
-        _ocean.Update();
+        _environmentHandler.Update();
     }
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {

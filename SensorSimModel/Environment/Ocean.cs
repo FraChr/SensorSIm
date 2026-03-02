@@ -5,9 +5,10 @@ namespace SensorSimModel.Environment;
 public class Ocean : Water, IOcean
 {
     public double SaltLevel { get; set; }
-    /*public double Pressure { get; set; }*/
     
     private readonly Random random = new();
+
+    public bool IsActive { get; set; } = false;
 
     /*EnvironmentColor = "Blue";*/
     public Ocean()
@@ -34,5 +35,4 @@ public class Ocean : Water, IOcean
             Temperatures--;
         }
     }
-
 }

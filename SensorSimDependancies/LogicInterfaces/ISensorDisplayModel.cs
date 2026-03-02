@@ -2,7 +2,7 @@
 
 public interface ISensorDisplayModel
 {
-    public  string Id { get; }
+    public string Id { get; }
     string Name { get; set; }
     string Value { get; set; }
 

@@ -15,17 +15,19 @@ public static class DependencyInjection
     {
         services.AddSingleton<IOcean, Ocean>();
         services.AddSingleton<IClock, SimClock>();
-        /*services.AddSingleton<IOcean, Ocean>();*/
         
         //Sensors
-        services.AddSingleton<ITemperature, TempSensor>();
-        services.AddSingleton<ISensorLogic, TempSensor>();
         services.AddSingleton<ISensorDisplayModel, SensorDisplayModel>();
+        
+        //Environments
+        services.AddSingleton<IEnvironmentDisplayModel, EnvironmentDisplayModel>();
         
         //Handler
         services.AddSingleton<ISensorHandler, SensorHandler>();
+        services.AddSingleton<IEnvironmentHandler, EnvironmentHandler>();
 
         services.AddSingleton<ISensorFactory, SensorFactory>();
+        services.AddSingleton<IEnvironmentFactory, EnvironmentFactory>();
         
         services.AddSingleton<IMainLogic, MainLogic>();
         return services;

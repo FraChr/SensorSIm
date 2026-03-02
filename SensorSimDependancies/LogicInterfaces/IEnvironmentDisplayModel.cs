@@ -2,5 +2,5 @@
 
 public interface IEnvironmentDisplayModel
 {
-    
+    public string Name { get; set; }
 }

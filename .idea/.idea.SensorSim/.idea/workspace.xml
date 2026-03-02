@@ -8,19 +8,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75c1f8bb-9965-4444-a120-4edc088130f2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SensorSim/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SensorSim/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/IEnvironmentDisplayModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/IEnvironmentFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/IEnvironmentHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimLogic/EnvironmentFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimModel/Environment/EnvironmentDisplayModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorSimModel/Sensor/DeapthSensor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SensorSim/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SensorSim/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensorDisplayModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensorDisplayModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensorFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensorFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensorHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensorHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensorLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ISensorLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimDependancies/ModelInterfaces/IWater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimDependancies/ModelInterfaces/IWater.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimDependancies/LogicInterfaces/ITemperature.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimDependancies/ModelInterfaces/IOcean.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimDependancies/ModelInterfaces/IOcean.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimLogic/EnvironmentHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimLogic/EnvironmentHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimLogic/SensorFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimLogic/SensorFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimLogic/SensorHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimLogic/SensorHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimModel/Environment/Ocean.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Environment/Ocean.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimModel/Environment/Water.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Environment/Water.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimModel/Sensor/SensorDisplayModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Sensor/SensorDisplayModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimModel/Sensor/PressureSensor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Sensor/PressureSensor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimModel/Sensor/TempSensor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Sensor/TempSensor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimServices/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimServices/DependencyInjection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorSimUI/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/MainViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorSimUI/ViewModels/EnvironmentViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimUI/ViewModels/EnvironmentViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +124,9 @@
       <workItem from="1772027656464" duration="301000" />
       <workItem from="1772093367574" duration="7841000" />
       <workItem from="1772181204462" duration="7050000" />
-      <workItem from="1772191474650" duration="4962000" />
+      <workItem from="1772191474650" duration="5296000" />
+      <workItem from="1772200240235" duration="2383000" />
+      <workItem from="1772450520965" duration="8175000" />
     </task>
     <servers />
   </component>

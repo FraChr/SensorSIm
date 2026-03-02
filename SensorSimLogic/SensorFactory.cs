@@ -12,7 +12,8 @@ public class SensorFactory : ISensorFactory
         _creators = new()
         {
             {"Temperature", () => new TempSensor()},
-            {"Pressure", () => new  PressureSensor()}
+            {"Pressure", () => new  PressureSensor()},
+            {"Deapth", () => new  DeapthSensor()},
         };
     }
     
@@ -26,8 +27,6 @@ public class SensorFactory : ISensorFactory
 
     public IEnumerable<ISensorDisplayModel> GetAvailableSensors()
     {
-        /*return _creators.Keys;*/
-
         return _creators.Keys.Select(key => new SensorDisplayModel(key)
         {
             Name = key,

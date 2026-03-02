@@ -13,3 +13,4 @@ public class MainViewModel(
     public EnvironmentViewModel EnvironmentVm { get; set; } = envVm;
     public SensorReadingsViewModel SensorReadingsVm { get; set; } = sensorReadingsVm;
 }
+
