@@ -3,5 +3,5 @@
 public interface ISensorHandler
 {
     public List<ISensorDisplayModel> RefreshAll();
-    public ISensorLogic CreateSensor(string sensorType);
+    public ISensor CreateSensor(string sensorType);
 }

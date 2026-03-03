@@ -1,4 +1,4 @@
-﻿namespace SensorSimModel.Environment;
+﻿namespace SensorSimModel.Environment.WaterEnvironments;
 
 public abstract class Water() : EnvironmentBase("blue")
 {

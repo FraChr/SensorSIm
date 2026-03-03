@@ -1,4 +1,6 @@
-﻿namespace SensorSimDependancies.ModelInterfaces;
+﻿using SensorSimDependancies.LogicInterfaces;
+
+namespace SensorSimDependancies.ModelInterfaces;
 
 public interface IWater : IEnvironment
 {

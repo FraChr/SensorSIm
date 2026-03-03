@@ -1,14 +1,13 @@
-﻿using SensorSimDependancies.ModelInterfaces;
+﻿using SensorSimDependancies.LogicInterfaces;
+using SensorSimDependancies.ModelInterfaces;
 
-namespace SensorSimModel.Environment;
+namespace SensorSimModel.Environment.WaterEnvironments;
 
 public class Ocean : Water, IOcean
 {
     public double SaltLevel { get; set; }
     
     private readonly Random random = new();
-
-    public bool IsActive { get; set; } = false;
 
     /*EnvironmentColor = "Blue";*/
     public Ocean()
@@ -34,5 +33,13 @@ public class Ocean : Water, IOcean
         {
             Temperatures--;
         }
+    }
+
+    public IEnvironmentDisplayModel ToDisplayModel()
+    {
+        return new EnvironmentDisplayModel()
+        {
+            Name = "Ocean",
+        };
     }
 }

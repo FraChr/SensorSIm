@@ -3,10 +3,10 @@ using SensorSimDependancies.ModelInterfaces;
 
 namespace SensorSimModel.Sensor;
 
-public class TempSensor : SensorBase, ISensorLogic
+public class TempSensor : SensorBase, ISensor
 {
     private string Id { get; set; } = Guid.NewGuid().ToString();
-    public Func<IOcean, double> GetEnvironmentValue { get; } = ocean => ocean.Temperatures;
+    public Func<IEnvironment, double> GetEnvironmentValue { get; } = Environment => Environment.Temperatures;
     public string Name { get; set; } = "Temperature";
     public double Temperature { get; set; }
     

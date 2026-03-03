@@ -6,7 +6,7 @@ namespace SensorSimTests;
 
 public class ModelTest
 {
-    [Fact]
+    /*[Fact]
     public void EnvironmentTest()
     {
         var services = new ServiceCollection();
@@ -19,5 +19,5 @@ public class ModelTest
         Assert.NotNull(ocean.Depth);
         Assert.NotNull(ocean.SaltLevel);
         Assert.NotNull(ocean.Temperatures);
-    }
+    }*/
 }

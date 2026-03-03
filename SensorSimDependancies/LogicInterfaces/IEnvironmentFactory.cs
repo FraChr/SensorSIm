@@ -4,6 +4,6 @@ namespace SensorSimDependancies.LogicInterfaces;
 
 public interface IEnvironmentFactory
 {
-    public void CreateEnvironment();
+    public IEnvironment Create(string environmentType);
     public IEnumerable<IEnvironmentDisplayModel> GetAvailableEnvironments();
 }

@@ -1,6 +1,8 @@
 ﻿using SensorSimDependancies.LogicInterfaces;
 using SensorSimDependancies.ModelInterfaces;
 using SensorSimModel.Environment;
+using SensorSimModel.Environment.DesertEnvironments;
+using SensorSimModel.Environment.WaterEnvironments;
 
 namespace SensorSimLogic;
 
@@ -12,13 +14,19 @@ public class EnvironmentFactory : IEnvironmentFactory
     {
         _environments = new()
         {
-            {"Ocean", () => new Ocean()}
+            {"Ocean", () => new Ocean()},
+            {"Lake", () => new Lake()},
+            {"SandDesert", () => new SandDesert()}
         };
     }
     
-    public void CreateEnvironment()
+    public IEnvironment Create(string environmentType)
     {
-        throw new NotImplementedException();
+        if(!_environments.TryGetValue(environmentType, out var environment))
+            throw new ArgumentException($"Unknown environment type: {environmentType}");
+        
+        return environment();
+        
     }
 
     public IEnumerable<IEnvironmentDisplayModel> GetAvailableEnvironments()

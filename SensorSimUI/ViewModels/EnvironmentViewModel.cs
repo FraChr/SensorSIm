@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using SensorSimDependancies.LogicInterfaces;
-using SensorSimDependancies.ModelInterfaces;
 
 namespace SensorSimUI.ViewModels;
 
@@ -11,21 +10,41 @@ public sealed class EnvironmentViewModel :  INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
     
     private IEnvironmentHandler _environmentHandler;
-    public string EnvironmentColor { get; set; }
+    private string _environmentColor;
+    public string EnvironmentColor { 
+        get => _environmentColor; 
+        set => SetField(ref _environmentColor, value);
+    }
+    
     private readonly IEnvironmentFactory _environmentFactory;
 
     public IEnumerable<IEnvironmentDisplayModel> AvailableEnvironments { get; set; }
-    
+    private IEnvironmentDisplayModel _activeEnvironment;
+
+    public IEnvironmentDisplayModel ActiveEnvironment
+    {
+        get => _activeEnvironment;
+        set
+        {
+            if (SetField(ref _activeEnvironment, value))
+            {
+                _environmentHandler.SetActiveEnvironment(value.Name);
+                EnvironmentColor = _environmentHandler.GetEnvironmentColor();
+            }
+        }
+    }
     
     public EnvironmentViewModel(IEnvironmentHandler environmentHandler, IEnvironmentFactory environmentFactory)
     {
         _environmentHandler = environmentHandler;
         _environmentFactory = environmentFactory;
-        EnvironmentColor = _environmentHandler.GetEnvironmentColor();
         
         AvailableEnvironments = _environmentFactory.GetAvailableEnvironments();
-    }
 
+        ActiveEnvironment = AvailableEnvironments.First();
+        EnvironmentColor = _environmentHandler.GetEnvironmentColor();
+        
+    }
     public void Run()
     {
         _environmentHandler.Update();

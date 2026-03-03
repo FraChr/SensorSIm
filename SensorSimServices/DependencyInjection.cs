@@ -13,7 +13,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddAppServices(this IServiceCollection services)
     {
-        services.AddSingleton<IOcean, Ocean>();
+        /*services.AddSingleton<IOcean, Ocean>();*/
         services.AddSingleton<IClock, SimClock>();
         
         //Sensors

@@ -5,36 +5,31 @@ namespace SensorSimLogic;
 
 public class EnvironmentHandler : IEnvironmentHandler
 {
-    private IOcean _ocean;
-    private Dictionary<string, Type> _environmentMap;
+    private IEnvironmentFactory _environmentFactory;
+    private IEnvironment _activeEnvironment;
     
-    public EnvironmentHandler(IOcean ocean)
+    public EnvironmentHandler(IEnvironmentFactory environmentFactory)
     {
-        _ocean = ocean;
-
-        _environmentMap = new()
-        {
-            {"ocean", typeof(IOcean)}
-        };
-
+        _environmentFactory = environmentFactory;
+        _activeEnvironment = _environmentFactory.Create("Ocean");
     }
     
     public void Update()
     {
-        _ocean.Update();
+        _activeEnvironment.Update();
     }
 
     public string GetEnvironmentColor()
     {
-        return _ocean.EnvironmentColor;
+        return _activeEnvironment.EnvironmentColor;
     }
 
-    public void SetActiveEnvironment()
+    public void SetActiveEnvironment(string environmentType)
     {
-        
+        _activeEnvironment = _environmentFactory.Create(environmentType);
     }
-    public void GetActiveEnvironment()
+    public IEnvironment GetActiveEnvironment()
     {
-        
+        return _activeEnvironment;
     }
 }

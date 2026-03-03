@@ -1,7 +1,11 @@
-﻿namespace SensorSimDependancies.LogicInterfaces;
+﻿using SensorSimDependancies.ModelInterfaces;
+
+namespace SensorSimDependancies.LogicInterfaces;
 
 public interface ISensor
 {
-    public string Name { get; set; }
-    public DateTime TimeStamp { get; set; }
+    public void Update(double value);
+    ISensorDisplayModel ToDisplayModel();
+    
+    Func<IEnvironment, double> GetEnvironmentValue { get; }
 }

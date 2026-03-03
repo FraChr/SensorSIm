@@ -2,6 +2,6 @@
 
 public interface ISensorFactory
 {
-    ISensorLogic Create(string sensorType);
+    ISensor Create(string sensorType);
     IEnumerable<ISensorDisplayModel> GetAvailableSensors();
 }

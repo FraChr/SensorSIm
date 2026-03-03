@@ -5,7 +5,7 @@ namespace SensorSimLogic;
 
 public class SensorFactory : ISensorFactory
 {
-    private readonly Dictionary<string, Func<ISensorLogic>> _creators;
+    private readonly Dictionary<string, Func<ISensor>> _creators;
 
     public SensorFactory()
     {
@@ -17,7 +17,7 @@ public class SensorFactory : ISensorFactory
         };
     }
     
-    public ISensorLogic Create(string sensorType)
+    public ISensor Create(string sensorType)
     {
         if (!_creators.TryGetValue(sensorType, out var creator))
             throw new ArgumentException($"Sensor type '{sensorType}' not registered.");

@@ -10,10 +10,4 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.2" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="ServicesInterfaces\" />
-      <Folder Include="TestsInterfaces\" />
-      <Folder Include="UiInterfaces\" />
-    </ItemGroup>
-
 </Project>

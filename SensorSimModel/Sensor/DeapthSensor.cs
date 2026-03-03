@@ -3,15 +3,16 @@ using SensorSimDependancies.ModelInterfaces;
 
 namespace SensorSimModel.Sensor;
 
-public class DeapthSensor : SensorBase, ISensorLogic
+public class DeapthSensor : SensorBase, ISensor
 {
     private string Id { get; set; } = Guid.NewGuid().ToString();   
-    public double Deapth { get; set; }
-    public string Name { get; set; } = "Deapth";
-    public Func<IOcean, double> GetEnvironmentValue { get; } = ocean => ocean.Depth;
+    public double Depth { get; set; }
+    public string Name { get; set; } = "Depth";
+    public Func<IEnvironment, double> GetEnvironmentValue { get; } = env => env.Depth;
+        /*= ocean => ocean.Depth;*/
     public void Update(double value)
     {
-        Deapth = value;
+        Depth = value;
     }
 
     public ISensorDisplayModel ToDisplayModel()
@@ -19,7 +20,7 @@ public class DeapthSensor : SensorBase, ISensorLogic
         return new SensorDisplayModel(Id)
         {
             Name = Name,
-            Value = $"{Deapth} Meters"
+            Value = $"{Depth} Meters"
         };
     }
 

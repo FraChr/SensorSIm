@@ -27,7 +27,8 @@
             
             <ComboBox 
                 ItemsSource="{Binding EnvironmentVm.AvailableEnvironments}"
-                DisplayMemberPath="Name"      
+                DisplayMemberPath="Name"
+                SelectedItem="{Binding EnvironmentVm.ActiveEnvironment, Mode=TwoWay}"
                 />
             
             <TextBlock DockPanel.Dock="Right" Margin="5">
@@ -63,6 +64,7 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ToolBar>
+            
             <Border Grid.Row="1" Background="{Binding EnvironmentVm.EnvironmentColor}" 
                     
                     AllowDrop="True"
