@@ -51,18 +51,18 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <ToolBar Grid.Row="0" DataContext="{Binding SensorVm}">
-                <ItemsControl ItemsSource="{Binding AvailableSensorTypes}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock 
-                                Background="Transparent"
-                                MouseMove="SensorDrag"
-                                AllowDrop="True"
-                                Text="{Binding Name}"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+            
+            <ToolBar Grid.Row="0" DataContext="{Binding SensorVm}" ItemsSource="{Binding AvailableSensorTypes}">
+                <ToolBar.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock
+                            Margin="10, 5"
+                            Background="Transparent"
+                            MouseMove="SensorDrag"
+                            AllowDrop="True"
+                            Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ToolBar.ItemTemplate>
             </ToolBar>
             
             <Border Grid.Row="1" Background="{Binding EnvironmentVm.EnvironmentColor}" 
