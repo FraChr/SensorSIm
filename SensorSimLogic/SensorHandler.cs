@@ -1,11 +1,6 @@
 ﻿using SensorSimDependancies.LogicInterfaces;
-using SensorSimDependancies.ModelInterfaces;
 
 namespace SensorSimLogic;
-
-
-// TODO: Responsible for creating, updating and general logical handling of sensors
-// should also give view model in ui data needed to display a sensor
 public class SensorHandler : ISensorHandler
 {
     private readonly List<ISensor> _activeSensors = new();
