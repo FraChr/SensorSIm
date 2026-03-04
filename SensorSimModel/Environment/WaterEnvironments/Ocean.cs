@@ -7,9 +7,9 @@ public class Ocean : Water, IOcean
 {
     public double Salinity { get; set; }
     
-    private readonly Random random = new();
+    private readonly Random _random = new();
+    private const string Name = "Ocean";
 
-    /*EnvironmentColor = "Blue";*/
     public Ocean()
     {
         Temperatures = 16.2;
@@ -20,9 +20,9 @@ public class Ocean : Water, IOcean
 
     public void Update()
     {
-        var rand = random.Next(0, 2);
-        var temp = random.Next(0, 2);
-        var pressure = random.Next(0, 2);
+        var rand = _random.Next(0, 2);
+        var temp = _random.Next(0, 2);
+        var pressure = _random.Next(0, 2);
         if (rand != 1) return;
 
         if (temp == 0)
@@ -39,7 +39,7 @@ public class Ocean : Water, IOcean
     {
         return new EnvironmentDisplayModel()
         {
-            Name = "Ocean",
+            Name = Name,
         };
     }
 }
