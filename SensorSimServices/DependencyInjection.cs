@@ -29,7 +29,6 @@ public static class DependencyInjection
         services.AddSingleton<ISensorFactory, SensorFactory>();
         services.AddSingleton<IEnvironmentFactory, EnvironmentFactory>();
         
-        services.AddSingleton<IMainLogic, MainLogic>();
         return services;
     }
 }
