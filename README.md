@@ -1,7 +1,10 @@
-# Title: SensorSim
+# SensorSim
 
-## Description:
-Simple sensor simulator, where user can set sensor in environment and get readings
+
+### **SensorSim** is a sensor simulator tool that allows users to:
+- Choose an environment
+- Place sensors within the environment
+- Receive real-time sensor readouts
 
 ## Tech Stack:
 - Windows only
