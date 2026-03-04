@@ -13,7 +13,8 @@ public class SensorFactory : ISensorFactory
         {
             {"Temperature", () => new TempSensor()},
             {"Pressure", () => new  PressureSensor()},
-            {"Deapth", () => new  DeapthSensor()},
+            {"Depth", () => new  DeapthSensor()},
+            {"Salinity", () => new SalinitySensor()},
         };
     }
     

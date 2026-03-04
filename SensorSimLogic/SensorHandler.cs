@@ -26,8 +26,7 @@ public class SensorHandler : ISensorHandler
         
         foreach (var sensor in _activeSensors)
         {
-            var value = sensor.GetEnvironmentValue(environment);
-            sensor.Update(value);
+            sensor.UpdateFromEnvironment(environment);
             result.Add(sensor.ToDisplayModel());
         }
         

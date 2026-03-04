@@ -6,21 +6,19 @@ namespace SensorSimModel.Sensor;
 public class TempSensor : SensorBase, ISensor
 {
     private string Id { get; set; } = Guid.NewGuid().ToString();
-    public Func<IEnvironment, double> GetEnvironmentValue { get; } = Environment => Environment.Temperatures;
-    public string Name { get; set; } = "Temperature";
-    public double Temperature { get; set; }
-    
-    public void Update(double value)
+    private string Name { get; set; } = "Temperature";
+    private double Temperature { get; set; }
+    public void UpdateFromEnvironment(IEnvironment environment)
     {
-        Temperature = value;
+        Temperature = environment.Temperatures;
     }
-
+    
     public ISensorDisplayModel ToDisplayModel()
     {
         return new SensorDisplayModel(Id)
         {
             Name = Name,
-            Value = $"{Temperature} C"
+            Value = $"{Temperature:F2} C"
         };
    }
 }

@@ -5,7 +5,7 @@ namespace SensorSimModel.Environment.WaterEnvironments;
 
 public class Ocean : Water, IOcean
 {
-    public double SaltLevel { get; set; }
+    public double Salinity { get; set; }
     
     private readonly Random random = new();
 
@@ -14,7 +14,7 @@ public class Ocean : Water, IOcean
     {
         Temperatures = 16.2;
         Pressure = 1.2;
-        SaltLevel = 4;
+        Salinity = 4;
         Depth = 1000;
     }
 

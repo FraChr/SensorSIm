@@ -3,16 +3,17 @@ using SensorSimDependancies.ModelInterfaces;
 
 namespace SensorSimModel.Environment.DesertEnvironments;
 
-public class SandDesert : Desert, IWater
+public class SandDesert : Desert, IAir
 {
     private readonly Random random = new();
+    public double WindSpeed { get; set; }
+    
     public double Depth { get; set; }
-    public double Pressure { get; set; }
 
     public SandDesert()
     {
         Temperatures = 40.5;
-        Pressure = 0.5;
+        WindSpeed = 0.2;
     }
     
     public IEnvironmentDisplayModel ToDisplayModel()
@@ -39,4 +40,5 @@ public class SandDesert : Desert, IWater
             Temperatures--;
         }
     }
+
 }

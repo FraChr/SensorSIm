@@ -5,14 +5,16 @@ namespace SensorSimModel.Sensor;
 
 public class DeapthSensor : SensorBase, ISensor
 {
+    private Func<IEnvironment, double> _getEnvironmentValue;
     private string Id { get; set; } = Guid.NewGuid().ToString();   
-    public double Depth { get; set; }
-    public string Name { get; set; } = "Depth";
-    public Func<IEnvironment, double> GetEnvironmentValue { get; } = env => env.Depth;
-        /*= ocean => ocean.Depth;*/
-    public void Update(double value)
+    private string Name { get; set; } = "Depth";
+    private double? Depth { get; set; }
+    public void UpdateFromEnvironment(IEnvironment environment)
     {
-        Depth = value;
+        if (environment is IWater waterEnvironment)
+            Depth = waterEnvironment.Depth;
+        else
+            Depth = null;
     }
 
     public ISensorDisplayModel ToDisplayModel()
@@ -20,7 +22,10 @@ public class DeapthSensor : SensorBase, ISensor
         return new SensorDisplayModel(Id)
         {
             Name = Name,
-            Value = $"{Depth} Meters"
+            Value = Depth.HasValue
+            ? $"{Depth.Value:F2} Meters"
+            : "N/A"
+            /*Value = $"{Depth} Meters"*/
         };
     }
 
