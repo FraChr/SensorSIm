@@ -8,3 +8,5 @@ Simple sensor simulator, where user can set sensor in environment and get readin
 - .Net 10
 - WPF
 
+
+# Test

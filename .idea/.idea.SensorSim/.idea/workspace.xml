@@ -7,11 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75c1f8bb-9965-4444-a120-4edc088130f2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SensorSim/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SensorSim/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimModel/Environment/WaterEnvironments/Lake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Environment/WaterEnvironments/Lake.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorSimModel/Environment/WaterEnvironments/Ocean.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SensorSimModel/Environment/WaterEnvironments/Ocean.cs" afterDir="false" />
-    </list>
+    <list default="true" id="75c1f8bb-9965-4444-a120-4edc088130f2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +107,7 @@
       <workItem from="1772450520965" duration="8800000" />
       <workItem from="1772524916520" duration="8711000" />
       <workItem from="1772537211508" duration="9891000" />
-      <workItem from="1772623214647" duration="7742000" />
+      <workItem from="1772623214647" duration="8051000" />
     </task>
     <servers />
   </component>
