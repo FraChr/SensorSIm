@@ -25,7 +25,6 @@ public class DeapthSensor : SensorBase, ISensor
             Value = Depth.HasValue
             ? $"{Depth.Value:F2} Meters"
             : "N/A"
-            /*Value = $"{Depth} Meters"*/
         };
     }
 

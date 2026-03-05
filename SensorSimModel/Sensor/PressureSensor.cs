@@ -23,7 +23,6 @@ public class PressureSensor : SensorBase, ISensor
             Value = Pressure.HasValue
             ? $"{Pressure.Value:F2} Bar"
             : "N/A"
-            /*Value = $"{Pressure} Bar",*/
         };
     }
 }

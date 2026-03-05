@@ -5,7 +5,7 @@ namespace SensorSimLogic;
 
 public class EnvironmentHandler : IEnvironmentHandler
 {
-    private IEnvironmentFactory _environmentFactory;
+    private readonly IEnvironmentFactory _environmentFactory;
     private IEnvironment _activeEnvironment;
     
     public EnvironmentHandler(IEnvironmentFactory environmentFactory)

@@ -26,7 +26,6 @@ public class EnvironmentFactory : IEnvironmentFactory
             throw new ArgumentException($"Unknown environment type: {environmentType}");
         
         return environment();
-        
     }
 
     public IEnumerable<IEnvironmentDisplayModel> GetAvailableEnvironments()
