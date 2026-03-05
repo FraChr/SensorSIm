@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Threading;
 using SensorSimDependancies.LogicInterfaces;
 
 namespace SensorSimUI.ViewModels;
@@ -7,6 +8,7 @@ namespace SensorSimUI.ViewModels;
 public sealed class EnvironmentViewModel :  INotifyPropertyChanged
 {
 
+    private readonly DispatcherTimer _environmentTick = new();
     public event PropertyChangedEventHandler? PropertyChanged;
     
     private IEnvironmentHandler _environmentHandler;
@@ -39,13 +41,21 @@ public sealed class EnvironmentViewModel :  INotifyPropertyChanged
         _environmentHandler = environmentHandler;
         _environmentFactory = environmentFactory;
         
+        _environmentTick = HelpersUi.SetupTick(TimeSpan.FromSeconds(2), OnEnvironmentTick);
+        _environmentTick.Start();
+        
         AvailableEnvironments = _environmentFactory.GetAvailableEnvironments();
 
         ActiveEnvironment = AvailableEnvironments.First();
         EnvironmentColor = _environmentHandler.GetEnvironmentColor();
         
     }
-    public void Run()
+    private void OnEnvironmentTick(object? sender, EventArgs eventArgs)
+    {
+        Refresh();
+    }
+
+    private void Refresh()
     {
         _environmentHandler.Update();
     }

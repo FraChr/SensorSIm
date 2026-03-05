@@ -1,17 +1,38 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Threading;
+using SensorSimDependancies.ModelInterfaces;
 
 namespace SensorSimUI.ViewModels;
 
 public sealed class ClockViewModel : INotifyPropertyChanged
 {
+    public event PropertyChangedEventHandler? PropertyChanged;
+    private readonly DispatcherTimer _displayTimer;
+    private readonly IClock _clock;
     public string TimeView
     {
         get;
         set => SetField(ref field, value);
     }
+    
+    public ClockViewModel(IClock clock)
+    {
+        _clock = clock;
+        _displayTimer = HelpersUi.SetupTick(TimeSpan.FromMilliseconds(10), OnDisplayTick);
+        StartDisplayTimer();
+    }
 
-    public event PropertyChangedEventHandler? PropertyChanged;
+    private void StartDisplayTimer()
+    {
+        _clock.StartStopwatch();
+        _displayTimer.Start();
+    }
+    
+    private void OnDisplayTick(object? sender, EventArgs e)
+    {
+        TimeView = _clock.GetElapsedTime().ToString(@"hh\:mm\:ss");
+    }
 
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
