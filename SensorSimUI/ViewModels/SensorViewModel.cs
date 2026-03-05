@@ -1,14 +1,12 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Threading;
 using SensorSimDependancies.LogicInterfaces;
 
 namespace SensorSimUI.ViewModels;
 
 public sealed class SensorViewModel : INotifyPropertyChanged
 {
-    private readonly DispatcherTimer _sensorTick = new();
     public event PropertyChangedEventHandler? PropertyChanged;
     
     private readonly ISensorHandler? _sensorHandler;
@@ -24,8 +22,8 @@ public sealed class SensorViewModel : INotifyPropertyChanged
     {
         _sensorHandler = sensorHandler;
         
-        _sensorTick = HelpersUi.SetupTick(TimeSpan.FromMilliseconds(10), OnSensorTick);
-        _sensorTick.Start();
+        var sensorTick = HelpersUi.SetupTick(TimeSpan.FromMilliseconds(10), OnSensorTick);
+        sensorTick.Start();
 
         AvailableSensorTypes = _sensorHandler.GetAvailableSensors();
     }
