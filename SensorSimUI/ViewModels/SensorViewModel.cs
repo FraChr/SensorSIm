@@ -20,7 +20,6 @@ public sealed class SensorViewModel : INotifyPropertyChanged
         get => _activeSensors;
         private set => SetField(ref _activeSensors, value);
     }
-
     public SensorViewModel(ISensorHandler sensorHandler)
     {
         _sensorHandler = sensorHandler;
@@ -30,6 +29,18 @@ public sealed class SensorViewModel : INotifyPropertyChanged
 
         AvailableSensorTypes = _sensorHandler.GetAvailableSensors();
     }
+    
+    public void SetSensor(string sensorType, double xPosition = 0, double yPosition = 0)
+    {
+        var sensor = _sensorHandler.CreateSensor(sensorType);
+
+        var displayModel = sensor.ToDisplayModel();
+        displayModel.XPosition = xPosition;
+        displayModel.YPosition = yPosition;
+        
+        _activeSensors.Add(displayModel);
+    }
+    
     private void OnSensorTick(object? sender, EventArgs eventArgs)
     {
         if (sender is null) return;
@@ -55,17 +66,6 @@ public sealed class SensorViewModel : INotifyPropertyChanged
         }
         ActiveSensors = new ObservableCollection<ISensorDisplayModel>(latestSensor);
     }
-
-    public void SetSensor(string sensorType, double xPosition = 0, double yPosition = 0)
-    {
-        var sensor = _sensorHandler.CreateSensor(sensorType);
-
-        var displayModel = sensor.ToDisplayModel();
-        displayModel.XPosition = xPosition;
-        displayModel.YPosition = yPosition;
-        
-        _activeSensors.Add(displayModel);
-    }
     
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
@@ -79,7 +79,4 @@ public sealed class SensorViewModel : INotifyPropertyChanged
         OnPropertyChanged(propertyName);
         return true;
     }
-    
- 
-    
 }

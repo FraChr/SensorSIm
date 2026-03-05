@@ -1,57 +1,53 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Threading;
 using SensorSimDependancies.LogicInterfaces;
 
 namespace SensorSimUI.ViewModels;
 
-public sealed class EnvironmentViewModel :  INotifyPropertyChanged
+public sealed class EnvironmentViewModel : INotifyPropertyChanged
 {
-
-    private readonly DispatcherTimer _environmentTick = new();
     public event PropertyChangedEventHandler? PropertyChanged;
-    
-    private IEnvironmentHandler _environmentHandler;
-    private string _environmentColor;
-    public string EnvironmentColor { 
-        get => _environmentColor; 
-        set => SetField(ref _environmentColor, value);
-    }
-    public IEnumerable<IEnvironmentDisplayModel> AvailableEnvironments { get; set; }
-    private IEnvironmentDisplayModel _activeEnvironment;
 
+    private readonly IEnvironmentHandler _environmentHandler;
+
+    public string EnvironmentColor
+    {
+        get;
+        set => SetField(ref field, value);
+    }
+
+    public ObservableCollection<IEnvironmentDisplayModel> AvailableEnvironments { get; }
     public IEnvironmentDisplayModel ActiveEnvironment
     {
-        get => _activeEnvironment;
+        get;
         set
         {
-            if (SetField(ref _activeEnvironment, value))
+            if (SetField(ref field, value))
             {
                 _environmentHandler.SetActiveEnvironment(value.Name);
                 EnvironmentColor = _environmentHandler.GetEnvironmentColor();
             }
         }
     }
-    
+
     public EnvironmentViewModel(IEnvironmentHandler environmentHandler)
     {
         _environmentHandler = environmentHandler;
         
-        _environmentTick = HelpersUi.SetupTick(TimeSpan.FromSeconds(2), OnEnvironmentTick);
-        _environmentTick.Start();
+        var environmentTick = HelpersUi.SetupTick(TimeSpan.FromSeconds(2), OnEnvironmentTick);
+        environmentTick.Start();
         
-        AvailableEnvironments = _environmentHandler.GetAvailableEnvironments();
+        /*AvailableEnvironments = _environmentHandler.GetAvailableEnvironments();*/
+        
+        AvailableEnvironments = new ObservableCollection<IEnvironmentDisplayModel>(
+            _environmentHandler.GetAvailableEnvironments());
 
         ActiveEnvironment = AvailableEnvironments.First();
         EnvironmentColor = _environmentHandler.GetEnvironmentColor();
         
     }
     private void OnEnvironmentTick(object? sender, EventArgs eventArgs)
-    {
-        Refresh();
-    }
-
-    private void Refresh()
     {
         _environmentHandler.Update();
     }

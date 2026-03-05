@@ -3,7 +3,7 @@
 namespace SensorSimLogic;
 public class SensorHandler : ISensorHandler
 {
-    private readonly List<ISensor> _activeSensors = new();
+    private readonly List<ISensor> _activeSensors = [];
     private readonly ISensorFactory _sensorFactory;
     private readonly IEnvironmentHandler _environmentHandler;
 
