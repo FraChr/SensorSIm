@@ -17,9 +17,6 @@ public sealed class EnvironmentViewModel :  INotifyPropertyChanged
         get => _environmentColor; 
         set => SetField(ref _environmentColor, value);
     }
-    
-    private readonly IEnvironmentFactory _environmentFactory;
-
     public IEnumerable<IEnvironmentDisplayModel> AvailableEnvironments { get; set; }
     private IEnvironmentDisplayModel _activeEnvironment;
 
@@ -36,15 +33,14 @@ public sealed class EnvironmentViewModel :  INotifyPropertyChanged
         }
     }
     
-    public EnvironmentViewModel(IEnvironmentHandler environmentHandler, IEnvironmentFactory environmentFactory)
+    public EnvironmentViewModel(IEnvironmentHandler environmentHandler)
     {
         _environmentHandler = environmentHandler;
-        _environmentFactory = environmentFactory;
         
         _environmentTick = HelpersUi.SetupTick(TimeSpan.FromSeconds(2), OnEnvironmentTick);
         _environmentTick.Start();
         
-        AvailableEnvironments = _environmentFactory.GetAvailableEnvironments();
+        AvailableEnvironments = _environmentHandler.GetAvailableEnvironments();
 
         ActiveEnvironment = AvailableEnvironments.First();
         EnvironmentColor = _environmentHandler.GetEnvironmentColor();

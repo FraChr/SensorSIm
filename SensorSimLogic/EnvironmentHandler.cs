@@ -32,4 +32,9 @@ public class EnvironmentHandler : IEnvironmentHandler
     {
         return _activeEnvironment;
     }
+
+    public IEnumerable<IEnvironmentDisplayModel> GetAvailableEnvironments()
+    {
+        return _environmentFactory.GetRegisteredEnvironments();
+    }
 }

@@ -28,7 +28,7 @@ public class EnvironmentFactory : IEnvironmentFactory
         return environment();
     }
 
-    public IEnumerable<IEnvironmentDisplayModel> GetAvailableEnvironments()
+    public IEnumerable<IEnvironmentDisplayModel> GetRegisteredEnvironments()
     {
         return _environments.Keys.Select(key => new EnvironmentDisplayModel
         {

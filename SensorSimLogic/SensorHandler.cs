@@ -34,4 +34,9 @@ public class SensorHandler : ISensorHandler
         _activeSensors.Add(sensor);
         return sensor;
     }
+
+    public IEnumerable<ISensorDisplayModel> GetAvailableSensors()
+    {
+        return _sensorFactory.GetRegisteredSensors();
+    }
 }

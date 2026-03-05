@@ -3,5 +3,5 @@
 public interface ISensorFactory
 {
     ISensor Create(string sensorType);
-    IEnumerable<ISensorDisplayModel> GetAvailableSensors();
+    IEnumerable<ISensorDisplayModel> GetRegisteredSensors();
 }

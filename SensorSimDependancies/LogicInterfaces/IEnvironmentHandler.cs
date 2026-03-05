@@ -8,4 +8,5 @@ public interface IEnvironmentHandler
     public string GetEnvironmentColor();
     public IEnvironment GetActiveEnvironment();
     public void SetActiveEnvironment(string environmentType);
+    public IEnumerable<IEnvironmentDisplayModel> GetAvailableEnvironments();
 }

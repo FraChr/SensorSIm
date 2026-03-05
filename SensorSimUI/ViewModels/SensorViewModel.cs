@@ -12,9 +12,6 @@ public sealed class SensorViewModel : INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
     
     private readonly ISensorHandler? _sensorHandler;
-    
-    private readonly ISensorFactory _sensorFactory;
-
     public IEnumerable<ISensorDisplayModel> AvailableSensorTypes { get; }
 
     private ObservableCollection<ISensorDisplayModel> _activeSensors = new();
@@ -24,15 +21,14 @@ public sealed class SensorViewModel : INotifyPropertyChanged
         private set => SetField(ref _activeSensors, value);
     }
 
-    public SensorViewModel(ISensorHandler sensorHandler, ISensorFactory sensorFactory)
+    public SensorViewModel(ISensorHandler sensorHandler)
     {
         _sensorHandler = sensorHandler;
-        _sensorFactory = sensorFactory;
         
         _sensorTick = HelpersUi.SetupTick(TimeSpan.FromMilliseconds(10), OnSensorTick);
         _sensorTick.Start();
 
-        AvailableSensorTypes = _sensorFactory.GetAvailableSensors();
+        AvailableSensorTypes = _sensorHandler.GetAvailableSensors();
     }
     private void OnSensorTick(object? sender, EventArgs eventArgs)
     {

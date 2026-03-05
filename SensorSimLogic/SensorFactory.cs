@@ -26,7 +26,7 @@ public class SensorFactory : ISensorFactory
         return creator();
     }
 
-    public IEnumerable<ISensorDisplayModel> GetAvailableSensors()
+    public IEnumerable<ISensorDisplayModel> GetRegisteredSensors()
     {
         return _creators.Keys.Select(key => new SensorDisplayModel(key)
         {
