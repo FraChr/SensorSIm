@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Xps;
 using SensorSimDependancies.LogicInterfaces;
 
 namespace SensorSimUI.ViewModels;
@@ -12,7 +13,9 @@ public sealed class SensorViewModel : INotifyPropertyChanged
     private readonly ISensorHandler? _sensorHandler;
     public IEnumerable<ISensorDisplayModel> AvailableSensorTypes { get; }
 
-    private ObservableCollection<ISensorDisplayModel> _activeSensors = new();
+    private ObservableCollection<ISensorDisplayModel> _activeSensors = [];
+    
+    // WARNING: Used by XAML binding. Do Not make private (Resharper false positive)
     public ObservableCollection<ISensorDisplayModel> ActiveSensors
     {
         get => _activeSensors;
