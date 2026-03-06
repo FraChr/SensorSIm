@@ -14,7 +14,7 @@ public sealed class SensorViewModel : INotifyPropertyChanged
 
     private ObservableCollection<ISensorDisplayModel> _activeSensors = [];
     
-    // WARNING: Used by XAML binding. Do Not make private (Resharper false positive)
+    // NOTE: Used by XAML binding. Do Not make private!
     public ObservableCollection<ISensorDisplayModel> ActiveSensors
     {
         get => _activeSensors;
