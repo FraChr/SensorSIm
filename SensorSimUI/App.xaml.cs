@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
-using SensorSimDependancies.LogicInterfaces;
 using SensorSimServices;
 using SensorSimUI.ViewModels;
 
@@ -21,10 +20,19 @@ public partial class App : Application
 
     protected override void OnStartup(StartupEventArgs e)
     {
-        base.OnStartup(e);
-        
-        var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
-        mainWindow.Show();
+        try
+        {
+            base.OnStartup(e);
+
+            var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+            mainWindow.Show();
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+            MessageBox.Show(exception.Message, "Error");
+            Environment.Exit(1);
+        }
     }
 
     private IServiceCollection AddUiServices()
