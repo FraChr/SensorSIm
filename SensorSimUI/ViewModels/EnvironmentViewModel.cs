@@ -49,7 +49,7 @@ public sealed class EnvironmentViewModel : INotifyPropertyChanged
     }
     private void OnEnvironmentTick(object? sender, EventArgs eventArgs)
     {
-        _environmentHandler.Update();
+        _environmentHandler.EnvUpdate();
     }
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {

@@ -26,7 +26,7 @@ public partial class MainWindow : Window
         
         if (sender is FrameworkElement element && element.DataContext is ISensorDisplayModel sensor)
         {
-            DragDrop.DoDragDrop(element, sensor.Id, DragDropEffects.Copy);
+            DragDrop.DoDragDrop(element, sensor.Name, DragDropEffects.Copy);
         }
     }
 
@@ -35,12 +35,13 @@ public partial class MainWindow : Window
         
         if(!e.Data.GetDataPresent(typeof(string))) return;
         
-        var sensorId = e.Data.GetData(typeof(string)) as string;
-        if (sensorId is null) return;
-
+        var sensorType = e.Data.GetData(typeof(string)) as string;
+        if(sensorType == null) return;
+        
         Point dropPos = e.GetPosition(dropCanvas);
         
-        _mainVm.SensorVm.SetSensor(sensorId, dropPos.X, dropPos.Y);
+        _mainVm.SensorVm.SetSensor(sensorType, dropPos.X, dropPos.Y);
+        
         
     }
 }

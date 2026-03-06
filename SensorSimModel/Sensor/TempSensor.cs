@@ -5,8 +5,8 @@ namespace SensorSimModel.Sensor;
 
 public class TempSensor : SensorBase, ISensor
 {
-    private string Id { get; set; } = Guid.NewGuid().ToString();
-    private string Name { get; set; } = "Temperature";
+    private string Id { get; } = Guid.NewGuid().ToString();
+    private string Name { get; } = "Temperature";
     private double Temperature { get; set; }
     public void UpdateFromEnvironment(IEnvironment environment)
     {

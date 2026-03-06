@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Xps;
 using SensorSimDependancies.LogicInterfaces;
 
 namespace SensorSimUI.ViewModels;
@@ -10,7 +9,7 @@ public sealed class SensorViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
     
-    private readonly ISensorHandler? _sensorHandler;
+    private readonly ISensorHandler _sensorHandler;
     public IEnumerable<ISensorDisplayModel> AvailableSensorTypes { get; }
 
     private ObservableCollection<ISensorDisplayModel> _activeSensors = [];
@@ -50,8 +49,6 @@ public sealed class SensorViewModel : INotifyPropertyChanged
     
     private void RefreshSensors()
     {
-        if(_sensorHandler == null) return;
-
         var positions = ActiveSensors
             .ToDictionary(s => s.Id, s => (s.XPosition, s.YPosition));
 

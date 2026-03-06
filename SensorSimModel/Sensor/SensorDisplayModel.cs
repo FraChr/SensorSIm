@@ -8,15 +8,13 @@ public class SensorDisplayModel : ISensorDisplayModel, INotifyPropertyChanged
 {
     public string Id { get; }
     public string Name { get; set; }
-    
-    private string _value;
 
     public string Value
     {
-        get => _value;
-        set => SetField(ref _value, value);
+        get;
+        set => SetField(ref field, value);
     }
-    
+
     public double XPosition { get; set; }
     public double YPosition { get; set; }
 

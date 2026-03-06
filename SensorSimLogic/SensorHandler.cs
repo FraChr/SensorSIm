@@ -1,4 +1,5 @@
 ﻿using SensorSimDependancies.LogicInterfaces;
+using SensorSimModel.Sensor;
 
 namespace SensorSimLogic;
 public class SensorHandler : ISensorHandler

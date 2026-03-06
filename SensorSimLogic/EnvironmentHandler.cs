@@ -14,7 +14,7 @@ public class EnvironmentHandler : IEnvironmentHandler
         _activeEnvironment = _environmentFactory.Create("Ocean");
     }
     
-    public void Update()
+    public void EnvUpdate()
     {
         _activeEnvironment.Update();
     }

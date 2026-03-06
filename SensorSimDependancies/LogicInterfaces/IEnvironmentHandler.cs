@@ -4,7 +4,7 @@ namespace SensorSimDependancies.LogicInterfaces;
 
 public interface IEnvironmentHandler
 {
-    public void Update();
+    public void EnvUpdate();
     public string GetEnvironmentColor();
     public IEnvironment GetActiveEnvironment();
     public void SetActiveEnvironment(string environmentType);
