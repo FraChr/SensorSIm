@@ -3,22 +3,14 @@ using SensorSimDependancies.ModelInterfaces;
 using SensorSimModel.Environment;
 using SensorSimModel.Environment.DesertEnvironments;
 using SensorSimModel.Environment.WaterEnvironments;
+using SensorSimUtility;
 
 namespace SensorSimLogic;
 
 public class EnvironmentFactory : IEnvironmentFactory
 {
-    private readonly Dictionary<string, Func<IEnvironment>> _environments;
-
-    public EnvironmentFactory()
-    {
-        _environments = new()
-        {
-            {"Ocean", () => new Ocean()},
-            {"Lake", () => new Lake()},
-            {"SandDesert", () => new SandDesert()}
-        };
-    }
+    private readonly Dictionary<string, Func<IEnvironment>>
+        _environments = FactoryHelpers.CreateEnvironmentDictionary();
     
     public IEnvironment Create(string environmentType)
     {

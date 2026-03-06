@@ -1,26 +1,15 @@
 ﻿using SensorSimDependancies.LogicInterfaces;
 using SensorSimModel.Sensor;
+using SensorSimUtility;
 
 namespace SensorSimLogic;
 
 public class SensorFactory : ISensorFactory
 {
-    private readonly Dictionary<string, Func<ISensor>> _creators;
-
-    public SensorFactory()
-    {
-        _creators = new()
-        {
-            {"Temperature", () => new TempSensor()},
-            {"Pressure", () => new  PressureSensor()},
-            {"Depth", () => new  DeapthSensor()},
-            {"Salinity", () => new SalinitySensor()},
-        };
-    }
-    
+    private readonly Dictionary<string, Func<ISensor>> _sensors = FactoryHelpers.CreateSensorDictionary();
     public ISensor Create(string sensorType)
     {
-        if (!_creators.TryGetValue(sensorType, out var creator))
+        if (!_sensors.TryGetValue(sensorType, out var creator))
             throw new ArgumentException($"Sensor type '{sensorType}' not registered.");
         
         return creator();
@@ -28,7 +17,7 @@ public class SensorFactory : ISensorFactory
 
     public IEnumerable<ISensorDisplayModel> GetRegisteredSensors()
     {
-        return _creators.Keys.Select(key => new SensorDisplayModel(key)
+        return _sensors.Keys.Select(key => new SensorDisplayModel(key)
         {
             Name = key,
         });
