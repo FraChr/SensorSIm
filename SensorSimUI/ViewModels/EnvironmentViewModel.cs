@@ -16,7 +16,9 @@ public sealed class EnvironmentViewModel : INotifyPropertyChanged
         get;
         set => SetField(ref field, value);
     }
-
+    
+    
+    // NOTE: Used by XAML binding. Do Not make private!
     public ObservableCollection<IEnvironmentDisplayModel> AvailableEnvironments { get; }
     public IEnvironmentDisplayModel ActiveEnvironment
     {
@@ -37,8 +39,6 @@ public sealed class EnvironmentViewModel : INotifyPropertyChanged
         
         var environmentTick = HelpersUi.SetupTick(TimeSpan.FromSeconds(2), OnEnvironmentTick);
         environmentTick.Start();
-        
-        /*AvailableEnvironments = _environmentHandler.GetAvailableEnvironments();*/
         
         AvailableEnvironments = new ObservableCollection<IEnvironmentDisplayModel>(
             _environmentHandler.GetAvailableEnvironments());
