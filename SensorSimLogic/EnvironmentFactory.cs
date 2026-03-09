@@ -1,5 +1,6 @@
 ﻿using SensorSimDependancies.LogicInterfaces;
 using SensorSimDependancies.ModelInterfaces;
+using SensorSimModel;
 using SensorSimModel.Environment;
 using SensorSimModel.Environment.DesertEnvironments;
 using SensorSimModel.Environment.WaterEnvironments;
@@ -9,10 +10,21 @@ namespace SensorSimLogic;
 
 public class EnvironmentFactory : IEnvironmentFactory
 {
-    private readonly Dictionary<string, Func<IEnvironment>>
+    /*private readonly Dictionary<string, Func<IEnvironment>>
+        _environments = FactoryHelpers.CreateEnvironmentDictionary();*/
+    
+    private readonly Dictionary<EnvironmentType, Func<IEnvironment>>
         _environments = FactoryHelpers.CreateEnvironmentDictionary();
     
-    public IEnvironment Create(string environmentType)
+    /*public IEnvironment Create(string environmentType)
+    {
+        if(!_environments.TryGetValue(environmentType, out var environment))
+            throw new ArgumentException($"Unknown environment type: {environmentType}");
+        
+        return environment();
+    }*/
+    
+    public IEnvironment Create(EnvironmentType environmentType)
     {
         if(!_environments.TryGetValue(environmentType, out var environment))
             throw new ArgumentException($"Unknown environment type: {environmentType}");
@@ -24,7 +36,8 @@ public class EnvironmentFactory : IEnvironmentFactory
     {
         return _environments.Keys.Select(key => new EnvironmentDisplayModel
         {
-            Name = key,
+            Type = key,
+            Name = key.ToString(),
         });
     }
 }

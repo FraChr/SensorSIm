@@ -1,5 +1,6 @@
 ﻿using SensorSimDependancies.LogicInterfaces;
 using SensorSimDependancies.ModelInterfaces;
+using SensorSimModel.Helpers;
 
 namespace SensorSimModel.Environment.WaterEnvironments;
 
@@ -8,7 +9,6 @@ public class Ocean : Water, IOcean
     public double Salinity { get; set; }
     
     private readonly Random _random = new();
-    private const string Name = "Ocean";
 
     public Ocean()
     {
@@ -20,26 +20,14 @@ public class Ocean : Water, IOcean
 
     public void Update()
     {
-        var rand = _random.Next(0, 2);
-        var temp = _random.Next(0, 2);
-        var pressure = _random.Next(0, 2);
-        if (rand != 1) return;
-
-        if (temp == 0)
-        {
-            Temperatures++;
-        }
-        else
-        {
-            Temperatures--;
-        }
+        Temperatures = UpdateHelper.TempCalc(Temperatures);
     }
 
     public IEnvironmentDisplayModel ToDisplayModel()
     {
         return new EnvironmentDisplayModel()
         {
-            Name = Name,
+            Name = nameof(EnvironmentType.Ocean),
         };
     }
 }

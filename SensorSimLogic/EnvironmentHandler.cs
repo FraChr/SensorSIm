@@ -1,5 +1,6 @@
 ﻿using SensorSimDependancies.LogicInterfaces;
 using SensorSimDependancies.ModelInterfaces;
+using SensorSimModel;
 
 namespace SensorSimLogic;
 
@@ -11,7 +12,8 @@ public class EnvironmentHandler : IEnvironmentHandler
     public EnvironmentHandler(IEnvironmentFactory environmentFactory)
     {
         _environmentFactory = environmentFactory;
-        _activeEnvironment = _environmentFactory.Create("Ocean");
+        /*_activeEnvironment = _environmentFactory.Create("Ocean");*/
+        _activeEnvironment = _environmentFactory.Create(EnvironmentType.Ocean);
     }
     
     public void EnvUpdate()
@@ -24,7 +26,12 @@ public class EnvironmentHandler : IEnvironmentHandler
         return _activeEnvironment.EnvironmentColor;
     }
 
-    public void SetActiveEnvironment(string environmentType)
+    /*public void SetActiveEnvironment(string environmentType)
+    {
+        _activeEnvironment = _environmentFactory.Create(environmentType);
+    }*/
+    
+    public void SetActiveEnvironment(EnvironmentType environmentType)
     {
         _activeEnvironment = _environmentFactory.Create(environmentType);
     }
