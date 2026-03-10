@@ -1,4 +1,6 @@
-﻿using SensorSimModel;
+﻿using System.Data.Common;
+using SensorSimModel;
+using SensorSimModel.Environment;
 using SensorSimModel.Environment.DesertEnvironments;
 using SensorSimModel.Environment.WaterEnvironments;
 using SensorSimModel.Interfaces;
@@ -8,17 +10,42 @@ namespace SensorSimUtility;
 
 public static class FactoryHelpers
 { 
-    public static Dictionary<SensorTypes, Func<ISensor>> CreateSensorDictionary()
+    public static Dictionary<SensorTypes, FactoryRegistration> CreateSensorDictionary()
     {
-        var sensorsFactory = new  Dictionary<SensorTypes, Func<ISensor>>
+        var sensorsFactory = new  Dictionary<SensorTypes, FactoryRegistration>
         {
-            {SensorTypes.Temperature, () => new TempSensor()},
-            {SensorTypes.Pressure, () => new  PressureSensor()},
-            {SensorTypes.Depth, () => new  DeapthSensor()},
-            {SensorTypes.Salinity, () => new SalinitySensor()},
+            {
+                SensorTypes.Temperature, new FactoryRegistration
+                {
+                    EnvironmentFactory = () => new TempSensor(),
+                    MetaData = [typeof(EnvironmentBase)]
+                }
+            },
+            {
+                SensorTypes.Pressure, new FactoryRegistration
+                {
+                    EnvironmentFactory = () => new PressureSensor(),
+                    MetaData = [typeof(Water), typeof(IAir)]
+                }
+            },
+            {
+                SensorTypes.Depth, new FactoryRegistration
+                {
+                    EnvironmentFactory = () => new DeapthSensor(),
+                    MetaData = [typeof(Water)]
+                }
+            },
+            {
+                SensorTypes.Salinity,  new FactoryRegistration
+                {
+                    EnvironmentFactory = () => new SalinitySensor(),
+                    MetaData = [typeof(Ocean)]
+                }
+            }
         };
         return sensorsFactory;
     }
+    
     public static Dictionary<EnvironmentTypes, Func<IEnvironment>> CreateEnvironmentDictionary()
     {
         var environmentFactory = new Dictionary<EnvironmentTypes, Func<IEnvironment>>

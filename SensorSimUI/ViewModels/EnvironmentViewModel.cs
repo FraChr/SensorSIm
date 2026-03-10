@@ -30,6 +30,7 @@ public sealed class EnvironmentViewModel : INotifyPropertyChanged
             {
                 _environmentHandler.SetActiveEnvironment(value.Types);
                 EnvironmentColor = _environmentHandler.GetEnvironmentColor();
+                OnPropertyChanged();
             }
         }
     }

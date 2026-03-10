@@ -1,6 +1,7 @@
 ﻿using SensorSimLogic.Interfaces;
 using SensorSimModel;
 using SensorSimModel.Interfaces;
+using SensorSimModel.Sensor;
 
 namespace SensorSimLogic;
 public class SensorHandler : ISensorHandler
@@ -36,8 +37,23 @@ public class SensorHandler : ISensorHandler
         return sensor;
     }
 
+    public void RemoveInvalidSensors(IEnumerable<SensorTypes> validTypes)
+    {
+        _activeSensors.RemoveAll(sensor => !validTypes.Contains(sensor.ToDisplayModel().Type));
+    }
+    
     public IEnumerable<ISensorDisplayModel> GetAvailableSensors()
     {
-        return _sensorFactory.GetRegisteredSensors();
+        var available = _sensorFactory.GetRegisteredSensors();
+        var env = _environmentHandler.GetActiveEnvironment();
+        var envType = env.GetType();
+
+        return available
+            .Where(kvp => kvp.Value.MetaData.Any(meta => meta.IsAssignableFrom(envType)))
+            .Select(kvp => new SensorDisplayModel(kvp.Key.ToString())
+            {
+                Type = kvp.Key,
+                Name = kvp.Key.ToString()
+            });
     }
 }

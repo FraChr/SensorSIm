@@ -12,7 +12,13 @@ public sealed class SensorViewModel : INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
     
     private readonly ISensorHandler _sensorHandler;
-    public IEnumerable<ISensorDisplayModel> AvailableSensorTypes { get; }
+    private readonly EnvironmentViewModel _environmentVm;
+
+    public IEnumerable<ISensorDisplayModel> AvailableSensorTypes
+    {
+        get;
+        private set => SetField(ref field, value);
+    }
 
     private ObservableCollection<ISensorDisplayModel> _activeSensors = [];
     
@@ -22,15 +28,37 @@ public sealed class SensorViewModel : INotifyPropertyChanged
         get => _activeSensors;
         private set => SetField(ref _activeSensors, value);
     }
-    public SensorViewModel(ISensorHandler sensorHandler)
+    public SensorViewModel(ISensorHandler sensorHandler, EnvironmentViewModel environmentVm)
     {
         _sensorHandler = sensorHandler;
+        _environmentVm = environmentVm;
+
+        _environmentVm.PropertyChanged += OnEnvironmentChanged;
         
         var sensorTick = HelpersUi.SetupTick(TimeSpan.FromMilliseconds(10), OnSensorTick);
         sensorTick.Start();
 
         AvailableSensorTypes = _sensorHandler.GetAvailableSensors();
     }
+
+    private void OnEnvironmentChanged(object sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName != nameof(EnvironmentViewModel.ActiveEnvironment)) return;
+        
+        RefreshAvailableSensors();
+
+        var validTypes = AvailableSensorTypes.Select(sensor => sensor.Type);
+        _sensorHandler.RemoveInvalidSensors(validTypes);
+
+        RefreshSensors();
+    }
+
+    private void RefreshAvailableSensors()
+    {
+        var sensors = _sensorHandler.GetAvailableSensors();
+        AvailableSensorTypes = new  ObservableCollection<ISensorDisplayModel>(sensors);
+    }
+    
     public void SetSensor(SensorTypes sensorTypeString, double xPosition = 0, double yPosition = 0)
     {
         var sensor = _sensorHandler.CreateSensor(sensorTypeString);

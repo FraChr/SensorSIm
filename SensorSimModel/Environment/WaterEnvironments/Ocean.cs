@@ -6,9 +6,6 @@ namespace SensorSimModel.Environment.WaterEnvironments;
 public class Ocean : Water, IOcean
 {
     public double Salinity { get; set; }
-    
-    private readonly Random _random = new();
-
     public Ocean()
     {
         Temperatures = 16.2;

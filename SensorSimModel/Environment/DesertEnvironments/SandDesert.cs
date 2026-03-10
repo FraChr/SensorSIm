@@ -7,8 +7,6 @@ public class SandDesert : Desert, IAir
     private readonly Random _random = new();
     public double WindSpeed { get; set; }
     
-    public double Depth { get; set; }
-
     public SandDesert()
     {
         Temperatures = 40.5;

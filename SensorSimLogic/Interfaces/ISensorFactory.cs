@@ -1,10 +1,11 @@
 ﻿using SensorSimModel;
 using SensorSimModel.Interfaces;
+using SensorSimUtility;
 
 namespace SensorSimLogic.Interfaces;
 
 public interface ISensorFactory
 {
     ISensor Create(SensorTypes sensorType);
-    IEnumerable<ISensorDisplayModel> GetRegisteredSensors();
+    Dictionary<SensorTypes, FactoryRegistration> GetRegisteredSensors();
 }
