@@ -4,4 +4,5 @@ public interface ISensor
 {
     ISensorDisplayModel ToDisplayModel();
     void UpdateFromEnvironment(IEnvironment environment);
+    
 }

@@ -10,6 +10,7 @@ public class TempSensor : SensorBase, ISensor
     {
         Temperature = environment.Temperatures;
     }
+
     public ISensorDisplayModel ToDisplayModel()
     {
         return new SensorDisplayModel(Id)
@@ -19,8 +20,6 @@ public class TempSensor : SensorBase, ISensor
             Value = $"{Temperature:F2} C"
         };
     }
-
-    
     
     
 }
