@@ -1,4 +1,4 @@
-﻿namespace SensorSimDependancies.ModelInterfaces;
+﻿namespace SensorSimModel.Interfaces;
 
 public interface IOcean : IWater
 {

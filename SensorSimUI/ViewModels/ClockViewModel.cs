@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Threading;
-using SensorSimDependancies.ModelInterfaces;
+using SensorSimModel.Interfaces;
 
 namespace SensorSimUI.ViewModels;
 

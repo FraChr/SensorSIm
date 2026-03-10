@@ -1,6 +1,4 @@
-﻿using SensorSimDependancies.ModelInterfaces;
-
-namespace SensorSimDependancies.LogicInterfaces;
+﻿namespace SensorSimModel.Interfaces;
 
 public interface ISensor
 {

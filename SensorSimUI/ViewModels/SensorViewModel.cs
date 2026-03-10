@@ -1,7 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using SensorSimDependancies.LogicInterfaces;
+using SensorSimLogic.Interfaces;
+using SensorSimModel.Interfaces;
 
 namespace SensorSimUI.ViewModels;
 

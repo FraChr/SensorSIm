@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SensorSimDependancies;
-using SensorSimDependancies.ModelInterfaces;
+using SensorSimModel.Interfaces;
 using SensorSimServices;
 
 namespace SensorSimTests;

@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SensorSimDependancies.LogicInterfaces;
-using SensorSimDependancies.ModelInterfaces;
 using SensorSimLogic;
+using SensorSimLogic.Interfaces;
 using SensorSimModel;
 using SensorSimModel.Environment;
+using SensorSimModel.Interfaces;
 using SensorSimModel.Sensor;
 
 

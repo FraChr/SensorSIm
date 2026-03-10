@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using SensorSimDependancies.LogicInterfaces;
+using SensorSimModel.Interfaces;
 
 namespace SensorSimUI;
 

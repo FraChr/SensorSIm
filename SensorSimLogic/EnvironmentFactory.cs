@@ -1,9 +1,9 @@
-﻿using SensorSimDependancies.LogicInterfaces;
-using SensorSimDependancies.ModelInterfaces;
+﻿using SensorSimLogic.Interfaces;
 using SensorSimModel;
 using SensorSimModel.Environment;
 using SensorSimModel.Environment.DesertEnvironments;
 using SensorSimModel.Environment.WaterEnvironments;
+using SensorSimModel.Interfaces;
 using SensorSimUtility;
 
 namespace SensorSimLogic;

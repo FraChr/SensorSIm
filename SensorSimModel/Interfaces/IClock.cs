@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace SensorSimDependancies.ModelInterfaces;
+namespace SensorSimModel.Interfaces;
 
 public interface IClock
 {

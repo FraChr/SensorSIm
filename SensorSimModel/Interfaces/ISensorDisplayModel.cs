@@ -1,4 +1,4 @@
-﻿namespace SensorSimDependancies.LogicInterfaces;
+﻿namespace SensorSimModel.Interfaces;
 
 public interface ISensorDisplayModel
 {

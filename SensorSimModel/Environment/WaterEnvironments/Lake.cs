@@ -1,5 +1,4 @@
-﻿using SensorSimDependancies.LogicInterfaces;
-using SensorSimDependancies.ModelInterfaces;
+﻿using SensorSimModel.Interfaces;
 
 namespace SensorSimModel.Environment.WaterEnvironments;
 

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using SensorSimDependancies.LogicInterfaces;
+using SensorSimModel.Interfaces;
 
 namespace SensorSimModel.Sensor;
 

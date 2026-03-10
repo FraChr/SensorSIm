@@ -1,6 +1,4 @@
-﻿using SensorSimModel;
-
-namespace SensorSimDependancies.LogicInterfaces;
+﻿namespace SensorSimModel.Interfaces;
 
 public interface IEnvironmentDisplayModel
 {

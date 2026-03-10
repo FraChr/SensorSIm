@@ -1,7 +1,9 @@
-﻿using SensorSimDependancies.ModelInterfaces;
-using SensorSimModel;
+﻿/*using SensorSimDependancies.ModelInterfaces;*/
 
-namespace SensorSimDependancies.LogicInterfaces;
+using SensorSimModel;
+using SensorSimModel.Interfaces;
+
+namespace SensorSimLogic.Interfaces;
 
 public interface IEnvironmentFactory
 {

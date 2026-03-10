@@ -11,7 +11,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SensorSimDependancies\SensorSimDependancies.csproj" />
       <ProjectReference Include="..\SensorSimLogic\SensorSimLogic.csproj" />
       <ProjectReference Include="..\SensorSimModel\SensorSimModel.csproj" />
     </ItemGroup>

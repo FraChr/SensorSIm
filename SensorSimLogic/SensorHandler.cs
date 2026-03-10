@@ -1,4 +1,5 @@
-﻿using SensorSimDependancies.LogicInterfaces;
+﻿using SensorSimLogic.Interfaces;
+using SensorSimModel.Interfaces;
 using SensorSimModel.Sensor;
 
 namespace SensorSimLogic;

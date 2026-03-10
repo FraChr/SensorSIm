@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SensorSimDependancies\SensorSimDependancies.csproj" />
       <ProjectReference Include="..\SensorSimModel\SensorSimModel.csproj" />
       <ProjectReference Include="..\SensorSimUtility\SensorSimUtility.csproj" />
     </ItemGroup>

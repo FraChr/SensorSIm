@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using SensorSimDependancies.ModelInterfaces;
+using SensorSimModel.Interfaces;
 
 namespace SensorSimModel;
 
