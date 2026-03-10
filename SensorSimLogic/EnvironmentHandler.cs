@@ -12,8 +12,7 @@ public class EnvironmentHandler : IEnvironmentHandler
     public EnvironmentHandler(IEnvironmentFactory environmentFactory)
     {
         _environmentFactory = environmentFactory;
-        /*_activeEnvironment = _environmentFactory.Create("Ocean");*/
-        _activeEnvironment = _environmentFactory.Create(EnvironmentType.Ocean);
+        _activeEnvironment = _environmentFactory.Create(EnvironmentTypes.Ocean);
     }
     
     public void EnvUpdate()
@@ -25,15 +24,9 @@ public class EnvironmentHandler : IEnvironmentHandler
     {
         return _activeEnvironment.EnvironmentColor;
     }
-
-    /*public void SetActiveEnvironment(string environmentType)
+    public void SetActiveEnvironment(EnvironmentTypes environmentTypes)
     {
-        _activeEnvironment = _environmentFactory.Create(environmentType);
-    }*/
-    
-    public void SetActiveEnvironment(EnvironmentType environmentType)
-    {
-        _activeEnvironment = _environmentFactory.Create(environmentType);
+        _activeEnvironment = _environmentFactory.Create(environmentTypes);
     }
     public IEnvironment GetActiveEnvironment()
     {

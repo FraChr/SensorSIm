@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using SensorSimModel;
 using SensorSimModel.Interfaces;
 
 namespace SensorSimUI;
@@ -26,22 +27,17 @@ public partial class MainWindow : Window
         
         if (sender is FrameworkElement element && element.DataContext is ISensorDisplayModel sensor)
         {
-            DragDrop.DoDragDrop(element, sensor.Name, DragDropEffects.Copy);
+            DragDrop.DoDragDrop(element, sensor.Type, DragDropEffects.Copy);
         }
     }
 
     private void Environment_Drop(object sender, DragEventArgs e)
     {
+        if (!e.Data.GetDataPresent(typeof(SensorTypes))) return;
         
-        if(!e.Data.GetDataPresent(typeof(string))) return;
-        
-        var sensorType = e.Data.GetData(typeof(string)) as string;
-        if(sensorType == null) return;
-        
+        var sensorTypes = (SensorTypes)e.Data.GetData(typeof(SensorTypes));
+
         Point dropPos = e.GetPosition(dropCanvas);
-        
-        _mainVm.SensorVm.SetSensor(sensorType, dropPos.X, dropPos.Y);
-        
-        
+        _mainVm.SensorVm.SetSensor(sensorTypes, dropPos.X, dropPos.Y);
     }
 }

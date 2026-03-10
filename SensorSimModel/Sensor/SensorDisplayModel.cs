@@ -4,8 +4,9 @@ using SensorSimModel.Interfaces;
 
 namespace SensorSimModel.Sensor;
 
-public class SensorDisplayModel : ISensorDisplayModel, INotifyPropertyChanged
+public sealed class SensorDisplayModel : ISensorDisplayModel, INotifyPropertyChanged
 {
+    public SensorTypes Type { get; set; }
     public string Id { get; }
     public string Name { get; set; }
 
@@ -27,12 +28,12 @@ public class SensorDisplayModel : ISensorDisplayModel, INotifyPropertyChanged
     
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
+    private bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
     {
         if (EqualityComparer<T>.Default.Equals(field, value)) return false;
         field = value;

@@ -2,6 +2,6 @@
 
 public interface IEnvironmentDisplayModel
 {
-    public EnvironmentType Type { get; set; }
+    public EnvironmentTypes Types { get; set; }
     public string Name { get; set; }
 }

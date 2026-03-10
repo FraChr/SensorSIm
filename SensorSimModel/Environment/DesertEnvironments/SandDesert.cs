@@ -19,8 +19,8 @@ public class SandDesert : Desert, IAir
     {
         return new EnvironmentDisplayModel()
         {
-            Type = EnvironmentType.SandDesert,
-            Name = nameof(EnvironmentType.SandDesert)
+            Types = EnvironmentTypes.SandDesert,
+            Name = nameof(EnvironmentTypes.SandDesert)
         };
     }
 

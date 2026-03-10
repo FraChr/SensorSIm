@@ -4,8 +4,7 @@ namespace SensorSimModel.Sensor;
 
 public class PressureSensor : SensorBase, ISensor
 {
-    private string Id { get; set; } = Guid.NewGuid().ToString();
-    private string Name { get; set; } = "Pressure";
+    private string Id { get; } = Guid.NewGuid().ToString();
     private double? Pressure { get; set; }
     public void UpdateFromEnvironment(IEnvironment environment)
     {
@@ -18,7 +17,8 @@ public class PressureSensor : SensorBase, ISensor
     {
         return new SensorDisplayModel(Id)
         {
-            Name = Name,
+            Type = SensorTypes.Pressure,
+            Name = nameof(SensorTypes.Pressure),
             Value = Pressure.HasValue
             ? $"{Pressure.Value:F2} Bar"
             : "N/A"

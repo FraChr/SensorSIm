@@ -9,6 +9,6 @@ public interface IEnvironmentHandler
     public string GetEnvironmentColor();
     public IEnvironment GetActiveEnvironment();
     /*public void SetActiveEnvironment(string environmentType);*/
-    public void SetActiveEnvironment(EnvironmentType environmentType);
+    public void SetActiveEnvironment(EnvironmentTypes environmentTypes);
     public IEnumerable<IEnvironmentDisplayModel> GetAvailableEnvironments();
 }

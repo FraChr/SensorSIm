@@ -28,7 +28,7 @@ public sealed class EnvironmentViewModel : INotifyPropertyChanged
         {
             if (SetField(ref field, value))
             {
-                _environmentHandler.SetActiveEnvironment(value.Type);
+                _environmentHandler.SetActiveEnvironment(value.Types);
                 EnvironmentColor = _environmentHandler.GetEnvironmentColor();
             }
         }

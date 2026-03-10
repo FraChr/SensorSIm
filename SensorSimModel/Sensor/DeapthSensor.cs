@@ -3,10 +3,8 @@
 namespace SensorSimModel.Sensor;
 
 public class DeapthSensor : SensorBase, ISensor
-{
-    private Func<IEnvironment, double> _getEnvironmentValue;
-    private string Id { get; set; } = Guid.NewGuid().ToString();   
-    private string Name { get; set; } = "Depth";
+{ 
+    private string Id { get; } = Guid.NewGuid().ToString();   
     private double? Depth { get; set; }
     public void UpdateFromEnvironment(IEnvironment environment)
     {
@@ -20,7 +18,8 @@ public class DeapthSensor : SensorBase, ISensor
     {
         return new SensorDisplayModel(Id)
         {
-            Name = Name,
+            Type = SensorTypes.Depth,
+            Name = nameof(SensorTypes.Depth),
             Value = Depth.HasValue
             ? $"{Depth.Value:F2} Meters"
             : "N/A"

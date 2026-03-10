@@ -4,8 +4,7 @@ namespace SensorSimModel.Sensor;
 
 public class SalinitySensor : SensorBase, ISensor
 {
-    private string Id { get; set; } = Guid.NewGuid().ToString();
-    private string Name { get; set; } = "Salinity";
+    private string Id { get; } = Guid.NewGuid().ToString();
     private double? Salinity { get; set; }
 
     public void UpdateFromEnvironment(IEnvironment environment)
@@ -19,7 +18,8 @@ public class SalinitySensor : SensorBase, ISensor
     {
         return new SensorDisplayModel(Id)
         {
-            Name = Name,
+            Type = SensorTypes.Salinity,
+            Name = nameof(SensorTypes.Salinity),
             Value = Salinity.HasValue
             ? $"{Salinity.Value} Saltiness"
             : "N/A"

@@ -10,24 +10,12 @@ namespace SensorSimLogic;
 
 public class EnvironmentFactory : IEnvironmentFactory
 {
-    /*private readonly Dictionary<string, Func<IEnvironment>>
-        _environments = FactoryHelpers.CreateEnvironmentDictionary();*/
-    
-    private readonly Dictionary<EnvironmentType, Func<IEnvironment>>
+    private readonly Dictionary<EnvironmentTypes, Func<IEnvironment>>
         _environments = FactoryHelpers.CreateEnvironmentDictionary();
-    
-    /*public IEnvironment Create(string environmentType)
+    public IEnvironment Create(EnvironmentTypes environmentTypes)
     {
-        if(!_environments.TryGetValue(environmentType, out var environment))
-            throw new ArgumentException($"Unknown environment type: {environmentType}");
-        
-        return environment();
-    }*/
-    
-    public IEnvironment Create(EnvironmentType environmentType)
-    {
-        if(!_environments.TryGetValue(environmentType, out var environment))
-            throw new ArgumentException($"Unknown environment type: {environmentType}");
+        if(!_environments.TryGetValue(environmentTypes, out var environment))
+            throw new ArgumentException($"Unknown environment type: {environmentTypes}");
         
         return environment();
     }
@@ -36,7 +24,7 @@ public class EnvironmentFactory : IEnvironmentFactory
     {
         return _environments.Keys.Select(key => new EnvironmentDisplayModel
         {
-            Type = key,
+            Types = key,
             Name = key.ToString(),
         });
     }

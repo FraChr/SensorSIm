@@ -26,7 +26,7 @@ public class Ocean : Water, IOcean
     {
         return new EnvironmentDisplayModel()
         {
-            Name = nameof(EnvironmentType.Ocean),
+            Name = nameof(EnvironmentTypes.Ocean),
         };
     }
 }

@@ -1,6 +1,6 @@
 ﻿using SensorSimLogic.Interfaces;
+using SensorSimModel;
 using SensorSimModel.Interfaces;
-using SensorSimModel.Sensor;
 
 namespace SensorSimLogic;
 public class SensorHandler : ISensorHandler
@@ -29,8 +29,7 @@ public class SensorHandler : ISensorHandler
         
         return result;
     }
-
-    public ISensor CreateSensor(string sensorType)
+    public ISensor CreateSensor(SensorTypes sensorType)
     {
         var sensor = _sensorFactory.Create(sensorType);
         _activeSensors.Add(sensor);

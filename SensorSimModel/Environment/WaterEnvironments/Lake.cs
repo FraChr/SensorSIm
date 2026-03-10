@@ -19,8 +19,8 @@ public class Lake : Water, IWater
     {
         return new EnvironmentDisplayModel()
         {
-            Type = EnvironmentType.Lake,
-            Name = nameof(EnvironmentType.Lake),
+            Types = EnvironmentTypes.Lake,
+            Name = nameof(EnvironmentTypes.Lake),
         };
     }
 

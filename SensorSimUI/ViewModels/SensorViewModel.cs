@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using SensorSimLogic.Interfaces;
+using SensorSimModel;
 using SensorSimModel.Interfaces;
 
 namespace SensorSimUI.ViewModels;
@@ -30,10 +31,9 @@ public sealed class SensorViewModel : INotifyPropertyChanged
 
         AvailableSensorTypes = _sensorHandler.GetAvailableSensors();
     }
-    
-    public void SetSensor(string sensorType, double xPosition = 0, double yPosition = 0)
+    public void SetSensor(SensorTypes sensorTypeString, double xPosition = 0, double yPosition = 0)
     {
-        var sensor = _sensorHandler.CreateSensor(sensorType);
+        var sensor = _sensorHandler.CreateSensor(sensorTypeString);
 
         var displayModel = sensor.ToDisplayModel();
         displayModel.XPosition = xPosition;

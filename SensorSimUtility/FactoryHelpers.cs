@@ -7,36 +7,25 @@ using SensorSimModel.Sensor;
 namespace SensorSimUtility;
 
 public static class FactoryHelpers
-{
-    public static Dictionary<string, Func<ISensor>> CreateSensorDictionary()
+{ 
+    public static Dictionary<SensorTypes, Func<ISensor>> CreateSensorDictionary()
     {
-        var sensorsFactory = new  Dictionary<string, Func<ISensor>>
+        var sensorsFactory = new  Dictionary<SensorTypes, Func<ISensor>>
         {
-            {"Temperature", () => new TempSensor()},
-            {"Pressure", () => new  PressureSensor()},
-            {"Depth", () => new  DeapthSensor()},
-            {"Salinity", () => new SalinitySensor()},
+            {SensorTypes.Temperature, () => new TempSensor()},
+            {SensorTypes.Pressure, () => new  PressureSensor()},
+            {SensorTypes.Depth, () => new  DeapthSensor()},
+            {SensorTypes.Salinity, () => new SalinitySensor()},
         };
         return sensorsFactory;
     }
-
-    /*public static Dictionary<string, Func<IEnvironment>> CreateEnvironmentDictionary()
+    public static Dictionary<EnvironmentTypes, Func<IEnvironment>> CreateEnvironmentDictionary()
     {
-        var environmentFactory = new Dictionary<string, Func<IEnvironment>>
+        var environmentFactory = new Dictionary<EnvironmentTypes, Func<IEnvironment>>
         {
-            { "Ocean", () => new Ocean() },
-            { "Lake", () => new Lake() },
-            { "SandDesert", () => new SandDesert() }
-        };
-        return environmentFactory;
-    }*/
-    public static Dictionary<EnvironmentType, Func<IEnvironment>> CreateEnvironmentDictionary()
-    {
-        var environmentFactory = new Dictionary<EnvironmentType, Func<IEnvironment>>
-        {
-            { EnvironmentType.Ocean, () => new Ocean() },
-            { EnvironmentType.Lake, () => new Lake() },
-            { EnvironmentType.SandDesert, () => new SandDesert() }
+            { EnvironmentTypes.Ocean, () => new Ocean() },
+            { EnvironmentTypes.Lake, () => new Lake() },
+            { EnvironmentTypes.SandDesert, () => new SandDesert() }
         };
         return environmentFactory;
     }

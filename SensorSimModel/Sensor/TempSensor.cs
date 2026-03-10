@@ -5,7 +5,6 @@ namespace SensorSimModel.Sensor;
 public class TempSensor : SensorBase, ISensor
 {
     private string Id { get; } = Guid.NewGuid().ToString();
-    private string Name { get; } = "Temperature";
     private double Temperature { get; set; }
     public void UpdateFromEnvironment(IEnvironment environment)
     {
@@ -16,8 +15,9 @@ public class TempSensor : SensorBase, ISensor
     {
         return new SensorDisplayModel(Id)
         {
-            Name = Name,
+            Type = SensorTypes.Temperature,
+            Name = nameof(SensorTypes.Temperature),
             Value = $"{Temperature:F2} C"
         };
-   }
+    }
 }

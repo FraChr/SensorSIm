@@ -1,6 +1,6 @@
 ﻿namespace SensorSimModel;
 
-public enum EnvironmentType
+public enum EnvironmentTypes
 {
     Ocean,
     Lake,
