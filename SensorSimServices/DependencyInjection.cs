@@ -5,6 +5,7 @@ using SensorSimModel;
 using SensorSimModel.Environment;
 using SensorSimModel.Interfaces;
 using SensorSimModel.Sensor;
+using SensorSimModel.UI.Sensor;
 
 
 namespace SensorSimServices;
