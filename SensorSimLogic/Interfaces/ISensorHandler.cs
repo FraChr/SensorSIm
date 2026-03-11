@@ -9,4 +9,5 @@ public interface ISensorHandler
     public ISensor CreateSensor(SensorTypes sensorType);
     public IEnumerable<ISensorDisplayModel> GetAvailableSensors();
     public void RemoveInvalidSensors(IEnumerable<SensorTypes> validTypes);
+    public ISensorDisplayModel GetDisplayForSensor(ISensor sensor);
 }
