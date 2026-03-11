@@ -79,7 +79,7 @@ public sealed class SensorViewModel : INotifyPropertyChanged
     private void RefreshSensors()
     {
         var positions = ActiveSensors
-            .ToDictionary(s => s.Id, s => (s.XPosition, s.YPosition));
+            .ToDictionary(sensor => sensor.Id, sensor => (sensor.XPosition, sensor.YPosition));
 
         var latestSensor = _sensorHandler.RefreshAll();
 

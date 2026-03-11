@@ -53,7 +53,7 @@ public class SensorHandler : ISensorHandler
             .Select(kvp => new SensorDisplayModel(kvp.Key.ToString())
             {
                 Type = kvp.Key,
-                Name = kvp.Key.ToString()
+                Name = kvp.Key.ToString(),
             });
     }
 }
