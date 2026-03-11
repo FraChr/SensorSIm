@@ -1,4 +1,5 @@
 ﻿using SensorSimModel.Interfaces;
+using SensorSimModel.UI.Sensor;
 
 namespace SensorSimModel.Sensor;
 
@@ -12,6 +13,13 @@ public class DeapthSensor : SensorBase, ISensor
             Depth = waterEnvironment.Depth;
         else
             Depth = null;
+    }
+
+    public void UpdateValue(ISensorDisplayModel display)
+    {
+        display.Value = Depth.HasValue
+            ? $"{Depth.Value:F2} Meters"
+            : "N/A";
     }
 
     public ISensorDisplayModel ToDisplayModel()

@@ -1,4 +1,5 @@
 ﻿using SensorSimModel.Interfaces;
+using SensorSimModel.UI.Sensor;
 
 namespace SensorSimModel.Sensor;
 
@@ -14,6 +15,14 @@ public class SalinitySensor : SensorBase, ISensor
         else 
             Salinity = null;
     }
+
+    public void UpdateValue(ISensorDisplayModel display)
+    {
+        display.Value = Salinity.HasValue
+            ? $"{Salinity.Value} Saltiness"
+            : "N/A";
+    }
+
     public ISensorDisplayModel ToDisplayModel()
     {
         return new SensorDisplayModel(Id)

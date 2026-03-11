@@ -1,8 +1,8 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using SensorSimModel.Interfaces;
 
-namespace SensorSimModel.Sensor;
+namespace SensorSimModel.UI.Sensor;
 
 public sealed class SensorDisplayModel : ISensorDisplayModel, INotifyPropertyChanged
 {

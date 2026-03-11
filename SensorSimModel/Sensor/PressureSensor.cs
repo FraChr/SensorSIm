@@ -1,4 +1,5 @@
 ﻿using SensorSimModel.Interfaces;
+using SensorSimModel.UI.Sensor;
 
 namespace SensorSimModel.Sensor;
 
@@ -13,6 +14,14 @@ public class PressureSensor : SensorBase, ISensor
         else
             Pressure = null;
     }
+
+    public void UpdateValue(ISensorDisplayModel display)
+    {
+        display.Value = Pressure.HasValue
+            ? $"{Pressure.Value:F2} Bar"
+            : "N/A";
+    }
+
     public ISensorDisplayModel ToDisplayModel()
     {
         return new SensorDisplayModel(Id)
