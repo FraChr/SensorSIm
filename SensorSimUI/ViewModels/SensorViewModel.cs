@@ -49,8 +49,8 @@ public sealed class SensorViewModel : INotifyPropertyChanged
 
         var validTypes = AvailableSensorTypes.Select(sensor => sensor.Type);
         _sensorHandler.RemoveInvalidSensors(validTypes);
-
-        RefreshSensors();
+        
+        ActiveSensors = new ObservableCollection<ISensorDisplayModel>(_sensorHandler.RefreshAll());
     }
 
     private void RefreshAvailableSensors()
@@ -62,8 +62,8 @@ public sealed class SensorViewModel : INotifyPropertyChanged
     public void SetSensor(SensorTypes sensorTypeString, double xPosition = 0, double yPosition = 0)
     {
         var sensor = _sensorHandler.CreateSensor(sensorTypeString);
-
-        var displayModel = sensor.ToDisplayModel();
+        
+        var displayModel = _sensorHandler.GetDisplayForSensor(sensor);
         displayModel.XPosition = xPosition;
         displayModel.YPosition = yPosition;
         
@@ -73,25 +73,7 @@ public sealed class SensorViewModel : INotifyPropertyChanged
     private void OnSensorTick(object? sender, EventArgs eventArgs)
     {
         if (sender is null) return;
-        RefreshSensors();
-    }
-    
-    private void RefreshSensors()
-    {
-        var positions = ActiveSensors
-            .ToDictionary(sensor => sensor.Id, sensor => (sensor.XPosition, sensor.YPosition));
-
-        var latestSensor = _sensorHandler.RefreshAll();
-
-        foreach (var sensor in latestSensor)
-        {
-            if (positions.TryGetValue(sensor.Id, out var pos))
-            {
-                sensor.XPosition = pos.XPosition;
-                sensor.YPosition = pos.YPosition;
-            }
-        }
-        ActiveSensors = new ObservableCollection<ISensorDisplayModel>(latestSensor);
+        _sensorHandler.RefreshAll();
     }
     
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
