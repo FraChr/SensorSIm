@@ -4,11 +4,11 @@ namespace SensorSimUtility;
 
 public class FactoryRegistration
 {
-    public required Func<ISensor> EnvironmentFactory { get; set; }
-    public required List<Type> MetaData {get; set;}
+    public required Func<ISensor> EnvironmentFactory { get; init; }
+    public required List<Type> MetaData {get; init;}
 }
 
 public class FactoryRegistrationDto
 {
-    public required List<Type> MetaData {get; set;}
+    public required List<Type> MetaData {get; init;}
 }
