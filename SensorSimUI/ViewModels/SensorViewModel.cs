@@ -55,8 +55,7 @@ public sealed class SensorViewModel : INotifyPropertyChanged
 
     private void RefreshAvailableSensors()
     {
-        var sensors = _sensorHandler.GetAvailableSensors();
-        AvailableSensorTypes = new  ObservableCollection<ISensorDisplayModel>(sensors);
+        AvailableSensorTypes = new  ObservableCollection<ISensorDisplayModel>(_sensorHandler.GetAvailableSensors());
     }
     
     public void SetSensor(SensorTypes sensorTypeString, double xPosition = 0, double yPosition = 0)
