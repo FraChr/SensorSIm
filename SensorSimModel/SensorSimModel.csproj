@@ -14,4 +14,8 @@
       <Folder Include="UI\Environment\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Assets\xCloudBackground.png" />
+    </ItemGroup>
+
 </Project>
