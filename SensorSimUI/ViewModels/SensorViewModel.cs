@@ -14,15 +14,15 @@ public sealed class SensorViewModel : INotifyPropertyChanged
     private readonly ISensorHandler _sensorHandler;
     private readonly EnvironmentViewModel _environmentVm;
 
+
+    private ObservableCollection<ISensorDisplayModel> _activeSensors = [];
+    
+    // NOTE: Used by XAML binding. Do Not make private!
     public IEnumerable<ISensorDisplayModel> AvailableSensorTypes
     {
         get;
         private set => SetField(ref field, value);
     }
-
-    private ObservableCollection<ISensorDisplayModel> _activeSensors = [];
-    
-    // NOTE: Used by XAML binding. Do Not make private!
     public ObservableCollection<ISensorDisplayModel> ActiveSensors
     {
         get => _activeSensors;
