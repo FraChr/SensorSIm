@@ -39,7 +39,6 @@ public partial class App : Application
     {
         var services = new ServiceCollection();
         services.AddAppServices();
-        services.AddSingleton<SensorReadingsViewModel>();
         services.AddSingleton<EnvironmentViewModel>();
         services.AddSingleton<SensorViewModel>();
         services.AddSingleton<ClockViewModel>();
