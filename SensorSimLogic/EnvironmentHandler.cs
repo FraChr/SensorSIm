@@ -35,6 +35,11 @@ public class EnvironmentHandler : IEnvironmentHandler
 
     public IEnumerable<IEnvironmentDisplayModel> GetAvailableEnvironments()
     {
-        return _environmentFactory.GetRegisteredEnvironments();
+        return _environmentFactory.GetRegisteredEnvironments()
+            .Select(type =>
+            {
+                var env = _environmentFactory.Create(type);
+                return env.ToDisplayModel();
+            });
     }
 }

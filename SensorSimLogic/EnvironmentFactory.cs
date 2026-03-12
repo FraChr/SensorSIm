@@ -1,6 +1,5 @@
 ﻿using SensorSimLogic.Interfaces;
 using SensorSimModel;
-using SensorSimModel.Environment;
 using SensorSimModel.Interfaces;
 using SensorSimUtility;
 
@@ -10,9 +9,6 @@ public class EnvironmentFactory : IEnvironmentFactory
 {
     private readonly Dictionary<EnvironmentTypes, Func<IEnvironment>>
         _environments = FactoryHelpers.CreateEnvironmentDictionary();
-    
-    /*private readonly Dictionary<EnvironmentTypes, Testing>
-        _environments = FactoryHelpers.CreateEnvironmentDictionary();*/
     public IEnvironment Create(EnvironmentTypes environmentTypes)
     {
         if(!_environments.TryGetValue(environmentTypes, out var environment))
@@ -21,12 +17,8 @@ public class EnvironmentFactory : IEnvironmentFactory
         return environment();
     }
 
-    public IEnumerable<IEnvironmentDisplayModel> GetRegisteredEnvironments()
+    public IEnumerable<EnvironmentTypes> GetRegisteredEnvironments()
     {
-        return _environments.Keys.Select(key => new EnvironmentDisplayModel
-        {
-            Types = key,
-            Name = key.ToString(),
-        });
+        return _environments.Keys;
     }
 }
