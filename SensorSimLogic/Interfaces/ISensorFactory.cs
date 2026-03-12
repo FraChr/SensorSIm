@@ -7,5 +7,5 @@ namespace SensorSimLogic.Interfaces;
 public interface ISensorFactory
 {
     ISensor Create(SensorTypes sensorType);
-    Dictionary<SensorTypes, FactoryRegistration> GetRegisteredSensors();
+    Dictionary<SensorTypes, FactoryRegistrationDto> GetRegisteredSensors();
 }

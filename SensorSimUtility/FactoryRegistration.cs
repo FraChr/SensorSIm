@@ -7,3 +7,8 @@ public class FactoryRegistration
     public required Func<ISensor> EnvironmentFactory { get; set; }
     public required List<Type> MetaData {get; set;}
 }
+
+public class FactoryRegistrationDto
+{
+    public required List<Type> MetaData {get; set;}
+}

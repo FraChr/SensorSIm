@@ -1,7 +1,6 @@
 ﻿using SensorSimLogic.Interfaces;
 using SensorSimModel;
 using SensorSimModel.Interfaces;
-using SensorSimModel.Sensor;
 using SensorSimUtility;
 
 namespace SensorSimLogic;
@@ -17,9 +16,13 @@ public class SensorFactory : ISensorFactory
         return creator.EnvironmentFactory();
     }
     
-    public Dictionary<SensorTypes, FactoryRegistration> GetRegisteredSensors()
+    public Dictionary<SensorTypes, FactoryRegistrationDto> GetRegisteredSensors()
     {
-        return _sensors;
+        return _sensors
+            .ToDictionary(kvp => kvp.Key,
+                kvp => new FactoryRegistrationDto
+                {
+                    MetaData = kvp.Value.MetaData
+                });
     }
-    
 }

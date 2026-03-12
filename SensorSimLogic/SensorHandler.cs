@@ -58,7 +58,9 @@ public class SensorHandler : ISensorHandler
         var available = _sensorFactory.GetRegisteredSensors();
         var env = _environmentHandler.GetActiveEnvironment();
         var envType = env.GetType();
-
+        
+        
+        
         return available
             .Where(kvp => kvp.Value.MetaData.Any(meta => meta.IsAssignableFrom(envType)))
             .Select(kvp => new SensorDisplayModel(kvp.Key.ToString())
