@@ -6,6 +6,7 @@ namespace SensorSimModel.UI.Sensor;
 
 public sealed class SensorDisplayModel : ISensorDisplayModel, INotifyPropertyChanged
 {
+    public ImageModel SensorImage { get; set; }
     public SensorTypes Type { get; set; }
     public string Id { get; }
     public string Name { get; set; }

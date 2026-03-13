@@ -2,6 +2,7 @@
 
 public interface ISensorDisplayModel
 {
+    ImageModel SensorImage { get; set; }
     public SensorTypes Type { get; set; }
     public string Id { get; }
     string Name { get; set; }

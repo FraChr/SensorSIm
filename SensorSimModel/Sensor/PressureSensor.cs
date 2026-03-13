@@ -5,6 +5,7 @@ namespace SensorSimModel.Sensor;
 
 public class PressureSensor : SensorBase, ISensor
 {
+    public ImageModel SensorImage { get; set; }
     private string Id { get; } = Guid.NewGuid().ToString();
     private double? Pressure { get; set; }
     public void UpdateFromEnvironment(IEnvironment environment)
@@ -21,6 +22,7 @@ public class PressureSensor : SensorBase, ISensor
             ? $"{Pressure.Value:F2} Bar"
             : "N/A";
     }
+
 
     public ISensorDisplayModel ToDisplayModel()
     {

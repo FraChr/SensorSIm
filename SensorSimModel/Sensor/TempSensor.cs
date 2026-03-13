@@ -1,10 +1,12 @@
-﻿using SensorSimModel.Interfaces;
+﻿using Resources;
+using SensorSimModel.Interfaces;
 using SensorSimModel.UI.Sensor;
 
 namespace SensorSimModel.Sensor;
 
 public class TempSensor : SensorBase, ISensor
 {
+    public ImageModel SensorImage { get; set; } = new ImageModel(SensorImagePaths.TempSensorImg);
     private string Id { get; } = Guid.NewGuid().ToString();
     private double Temperature { get; set; }
 
@@ -18,13 +20,15 @@ public class TempSensor : SensorBase, ISensor
         display.Value = $"{Temperature:F2} C";
     }
 
-public ISensorDisplayModel ToDisplayModel()
+
+    public ISensorDisplayModel ToDisplayModel()
     {
         return new SensorDisplayModel(Id)
         {
             Type = SensorTypes.Temperature,
             Name = nameof(SensorTypes.Temperature),
-            Value = $"{Temperature:F2} C"
+            Value = $"{Temperature:F2} C",
+            SensorImage = SensorImage
         };
     }
     

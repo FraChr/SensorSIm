@@ -5,6 +5,7 @@ namespace SensorSimModel.Sensor;
 
 public class SalinitySensor : SensorBase, ISensor
 {
+    public ImageModel SensorImage { get; set; }
     private string Id { get; } = Guid.NewGuid().ToString();
     private double? Salinity { get; set; }
 
@@ -22,6 +23,7 @@ public class SalinitySensor : SensorBase, ISensor
             ? $"{Salinity.Value} Saltiness"
             : "N/A";
     }
+
 
     public ISensorDisplayModel ToDisplayModel()
     {

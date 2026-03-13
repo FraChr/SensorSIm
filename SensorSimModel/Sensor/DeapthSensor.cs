@@ -5,6 +5,7 @@ namespace SensorSimModel.Sensor;
 
 public class DeapthSensor : SensorBase, ISensor
 { 
+    public ImageModel SensorImage { get; set; }
     private string Id { get; } = Guid.NewGuid().ToString();   
     private double? Depth { get; set; }
     public void UpdateFromEnvironment(IEnvironment environment)
@@ -21,6 +22,7 @@ public class DeapthSensor : SensorBase, ISensor
             ? $"{Depth.Value:F2} Meters"
             : "N/A";
     }
+
 
     public ISensorDisplayModel ToDisplayModel()
     {
