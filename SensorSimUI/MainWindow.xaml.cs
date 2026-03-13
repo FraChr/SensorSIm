@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using SensorSimModel;
 using SensorSimModel.Interfaces;
 
@@ -18,6 +19,12 @@ public partial class MainWindow : Window
         DataContext = mainVm;
         
         _mainVm = mainVm;
+
+
+        /*var image = _mainVm.EnvironmentVm.GetEnvironmentImage();
+        img.Source = image;*/
+
+
     }
 
     private void SensorDrag(object sender, MouseEventArgs e)

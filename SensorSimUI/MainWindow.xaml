@@ -65,33 +65,37 @@
                 </ToolBar.ItemTemplate>
             </ToolBar>
             
+            
             <Border Grid.Row="1" Background="{Binding EnvironmentVm.EnvironmentColor}" 
                     
                     AllowDrop="True"
                     Drop="Environment_Drop">
-                
-                <ItemsControl x:Name="dropCanvas" ItemsSource="{Binding SensorVm.ActiveSensors}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <Canvas />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
+                <Grid>
+                    <Image Stretch="Fill" Source="{Binding EnvironmentVm.EnvImage}"/>
                     
-                    <ItemsControl.ItemContainerStyle>
-                        <Style TargetType="ContentPresenter">
-                            <Setter Property="Canvas.Left" Value="{Binding XPosition}" />
-                            <Setter Property="Canvas.Top" Value="{Binding YPosition}" />
-                        </Style>
-                    </ItemsControl.ItemContainerStyle>
-                    
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border Background="LightBlue" Padding="4" BorderBrush="DarkBlue" BorderThickness="1">
-                                <TextBlock Text="{Binding Name}" />
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                    <ItemsControl x:Name="dropCanvas" ItemsSource="{Binding SensorVm.ActiveSensors}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Canvas />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="Canvas.Left" Value="{Binding XPosition}" />
+                                <Setter Property="Canvas.Top" Value="{Binding YPosition}" />
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+                        
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Background="LightBlue" Padding="4" BorderBrush="DarkBlue" BorderThickness="1">
+                                    <TextBlock Text="{Binding Name}" />
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
             </Border>
         </Grid>
     </Grid>

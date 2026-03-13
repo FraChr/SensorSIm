@@ -6,4 +6,5 @@ public interface IEnvironment
     public double Temperatures { get; set; }
     public IEnvironmentDisplayModel ToDisplayModel();
     public void Update();
+    public ImageModel Image { get; set; }
 }

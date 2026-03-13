@@ -5,6 +5,7 @@ namespace SensorSimModel.Environment.WaterEnvironments;
 
 public class Ocean : Water, IOcean
 {
+    public ImageModel Image { get; set; } = new ImageModel("Assets/Images/Environment/Ocean.png");
     public double Salinity { get; set; }
     public Ocean()
     {
@@ -19,12 +20,14 @@ public class Ocean : Water, IOcean
         Temperatures = UpdateHelper.TempCalc(Temperatures);
     }
 
+
     public IEnvironmentDisplayModel ToDisplayModel()
     {
         return new EnvironmentDisplayModel()
         {
             Types = EnvironmentTypes.Ocean,
             Name = nameof(EnvironmentTypes.Ocean),
+            Image = Image
         };
     }
 }

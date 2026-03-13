@@ -4,6 +4,8 @@ namespace SensorSimModel.Environment.WaterEnvironments;
 
 public class Lake : Water, IWater
 {
+    public ImageModel Image { get; set; } = new ImageModel("Assets/Images/Environment/Lake.png");
+    
     private readonly Random _random = new();
     private const string Name = "Lake";
 
@@ -21,6 +23,7 @@ public class Lake : Water, IWater
         {
             Types = EnvironmentTypes.Lake,
             Name = nameof(EnvironmentTypes.Lake),
+            Image = Image
         };
     }
 
@@ -34,4 +37,5 @@ public class Lake : Water, IWater
         if(temp == 0) Temperatures++;
         else Temperatures--;
     }
+
 }

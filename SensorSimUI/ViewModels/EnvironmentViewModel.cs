@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Drawing;
 using System.Runtime.CompilerServices;
+using System.Windows.Media.Imaging;
 using SensorSimLogic.Interfaces;
 using SensorSimModel.Interfaces;
 
@@ -11,6 +13,7 @@ public sealed class EnvironmentViewModel : INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
 
     private readonly IEnvironmentHandler _environmentHandler;
+
 
     public string EnvironmentColor
     {
@@ -31,8 +34,27 @@ public sealed class EnvironmentViewModel : INotifyPropertyChanged
                 _environmentHandler.SetActiveEnvironment(value.Types);
                 EnvironmentColor = _environmentHandler.GetEnvironmentColor();
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(EnvImage));
+                
             }
         }
+    }
+    public BitmapImage EnvImage
+    {
+        get
+        {
+            var image = new BitmapImage(new Uri(ActiveEnvironment.Image.ImagePath, UriKind.Relative));
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.Freeze();
+            return image;
+        }
+    }
+    public BitmapImage GetEnvironmentImage()
+    {
+        var image = new BitmapImage(new Uri(ActiveEnvironment.Image.ImagePath, UriKind.Relative));
+        image.CacheOption = BitmapCacheOption.OnLoad;
+        image.Freeze();
+        return image;
     }
 
     public EnvironmentViewModel(IEnvironmentHandler environmentHandler)

@@ -4,6 +4,8 @@ namespace SensorSimModel.Environment.DesertEnvironments;
 
 public class SandDesert : Desert, IAir
 {
+    public ImageModel Image { get; set; }
+    
     private readonly Random _random = new();
     public double WindSpeed { get; set; }
     
