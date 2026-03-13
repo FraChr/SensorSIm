@@ -1,7 +1,7 @@
 ﻿namespace Resources;
 
-public static class ImagePaths
+public static class EnvironmentImagePaths
 {
-    public static readonly string OceanBackground = "Assets/Images/Environment/Ocean.png";
-    public static readonly string LakeBackground = "Assets/Images/Environment/Lake.png";
+    public const string OceanBackground = "Assets/Images/Environment/Ocean.png";
+    public const string LakeBackground = "Assets/Images/Environment/Lake.png";
 }
