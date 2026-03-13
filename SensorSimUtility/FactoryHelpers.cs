@@ -18,7 +18,7 @@ public static class FactoryHelpers
             {
                 SensorTypes.Temperature, new FactoryRegistration
                 {
-                    EnvironmentFactory = () => new TempSensor(),
+                    FactoryFunc = () => new TempSensor(),
                     MetaData = [typeof(EnvironmentBase)],
                     DefaultImagePath = SensorImagePaths.TempSensorImg
                 }
@@ -26,21 +26,21 @@ public static class FactoryHelpers
             {
                 SensorTypes.Pressure, new FactoryRegistration
                 {
-                    EnvironmentFactory = () => new PressureSensor(),
+                    FactoryFunc = () => new PressureSensor(),
                     MetaData = [typeof(Water), typeof(IAir)]
                 }
             },
             {
                 SensorTypes.Depth, new FactoryRegistration
                 {
-                    EnvironmentFactory = () => new DeapthSensor(),
+                    FactoryFunc = () => new DeapthSensor(),
                     MetaData = [typeof(Water)]
                 }
             },
             {
                 SensorTypes.Salinity,  new FactoryRegistration
                 {
-                    EnvironmentFactory = () => new SalinitySensor(),
+                    FactoryFunc = () => new SalinitySensor(),
                     MetaData = [typeof(Ocean)]
                 }
             }

@@ -13,7 +13,7 @@ public class SensorFactory : ISensorFactory
         if (!_sensors.TryGetValue(sensorType, out var creator))
             throw new ArgumentException($"Sensor type '{sensorType}' not registered.");
         
-        return creator.EnvironmentFactory();
+        return creator.FactoryFunc();
     }
     
     public Dictionary<SensorTypes, FactoryRegistrationDto> GetRegisteredSensors()
