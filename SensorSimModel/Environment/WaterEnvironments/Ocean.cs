@@ -1,11 +1,12 @@
-﻿using SensorSimModel.Helpers;
+﻿using Resources;
+using SensorSimModel.Helpers;
 using SensorSimModel.Interfaces;
 
 namespace SensorSimModel.Environment.WaterEnvironments;
 
 public class Ocean : Water, IOcean
 {
-    public ImageModel Image { get; set; } = new ImageModel("Assets/Images/Environment/Ocean.png");
+    public ImageModel Image { get; set; } = new ImageModel(EnvironmentImagePaths.OceanBackground);
     public double Salinity { get; set; }
     public Ocean()
     {

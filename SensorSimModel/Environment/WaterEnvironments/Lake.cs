@@ -1,10 +1,11 @@
-﻿using SensorSimModel.Interfaces;
+﻿using Resources;
+using SensorSimModel.Interfaces;
 
 namespace SensorSimModel.Environment.WaterEnvironments;
 
 public class Lake : Water, IWater
 {
-    public ImageModel Image { get; set; } = new ImageModel("Assets/Images/Environment/Lake.png");
+    public ImageModel Image { get; set; } = new ImageModel(EnvironmentImagePaths.LakeBackground);
     
     private readonly Random _random = new();
     private const string Name = "Lake";
