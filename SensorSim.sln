@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorSimLogic", "SensorSim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorSimUtility", "SensorSimUtility\SensorSimUtility.csproj", "{4AD443EB-F626-4D1E-B36C-0B2BD21B26DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{C0232D5D-AF21-4382-B9AB-5D9EC3792EC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{4AD443EB-F626-4D1E-B36C-0B2BD21B26DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AD443EB-F626-4D1E-B36C-0B2BD21B26DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AD443EB-F626-4D1E-B36C-0B2BD21B26DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0232D5D-AF21-4382-B9AB-5D9EC3792EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0232D5D-AF21-4382-B9AB-5D9EC3792EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0232D5D-AF21-4382-B9AB-5D9EC3792EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0232D5D-AF21-4382-B9AB-5D9EC3792EC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

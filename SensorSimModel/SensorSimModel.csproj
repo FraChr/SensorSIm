@@ -32,6 +32,14 @@
       <Content Include="Assets\Images\Environment\Ocean.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Assets\Images\Sensor\Temperature.png" />
+      <Content Include="Assets\Images\Sensor\Temperature.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Resources\Resources.csproj" />
     </ItemGroup>
 
 </Project>
