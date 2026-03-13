@@ -67,6 +67,7 @@ public class SensorHandler : ISensorHandler
             {
                 Type = kvp.Key,
                 Name = kvp.Key.ToString(),
+                SensorImage = new ImageModel(kvp.Value.DefaultImagePath)
             });
     }
 }

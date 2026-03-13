@@ -22,7 +22,8 @@ public class SensorFactory : ISensorFactory
             .ToDictionary(kvp => kvp.Key,
                 kvp => new FactoryRegistrationDto
                 {
-                    MetaData = kvp.Value.MetaData
+                    MetaData = kvp.Value.MetaData,
+                    DefaultImagePath = kvp.Value.DefaultImagePath
                 });
     }
 }

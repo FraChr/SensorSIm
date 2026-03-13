@@ -1,4 +1,5 @@
 ﻿using System.Data.Common;
+using Resources;
 using SensorSimModel;
 using SensorSimModel.Environment;
 using SensorSimModel.Environment.DesertEnvironments;
@@ -18,7 +19,8 @@ public static class FactoryHelpers
                 SensorTypes.Temperature, new FactoryRegistration
                 {
                     EnvironmentFactory = () => new TempSensor(),
-                    MetaData = [typeof(EnvironmentBase)]
+                    MetaData = [typeof(EnvironmentBase)],
+                    DefaultImagePath = SensorImagePaths.TempSensorImg
                 }
             },
             {
