@@ -19,7 +19,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="Assets\Ocean.png" />
       <None Remove="Assets\Ocean.png" />
       <None Remove="Assets\Lake.png" />
       <Content Update="Assets\Images\Environment\Lake.png">
