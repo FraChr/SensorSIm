@@ -60,12 +60,6 @@
             <ToolBar Grid.Row="0" DataContext="{Binding SensorVm}" ItemsSource="{Binding AvailableSensorTypes}">
                 <ToolBar.ItemTemplate>
                     <DataTemplate>
-                        <!--<TextBlock
-                            Margin="10, 5"
-                            Background="Transparent"
-                            MouseMove="SensorDrag"
-                            AllowDrop="True"
-                            Text="{Binding Name}"/>-->
                         <Image Width="28" Height="28" 
                                Source="{Binding SensorImage.ImagePath, Converter={StaticResource ImageConverter}}"
                                MouseMove="SensorDrag"
@@ -77,12 +71,11 @@
             </ToolBar>
             
             <!--Keep border element until all environment objects has image-->
-            <Border Grid.Row="1" Background="{Binding EnvironmentVm.EnvironmentColor}">
+            <Border  Grid.Row="1" Background="{Binding EnvironmentVm.EnvironmentColor}">
                 <Grid
                     AllowDrop="True"
                     Drop="Environment_Drop">
                     
-                    <!--<Image Stretch="Fill" Source="{Binding EnvironmentVm.EnvImage}"/>-->
                     <Image Stretch="Fill" 
                            Source="{Binding EnvironmentVm.ActiveEnvironment.Image.ImagePath, Converter={StaticResource ImageConverter}}"/>
                     
@@ -103,9 +96,9 @@
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Border Background="LightBlue" Padding="4" BorderBrush="DarkBlue" BorderThickness="1">
-                                    <!--<TextBlock Text="{Binding Name}" />-->
                                     <Image Width="28" Height="28" 
-                                           Source="{Binding SensorImage.ImagePath, Converter={StaticResource ImageConverter}}" ToolTip="{Binding Name}"/>
+                                           Source="{Binding SensorImage.ImagePath, Converter={StaticResource ImageConverter}}" 
+                                           ToolTip="{Binding Name}"/>
                                 </Border>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
