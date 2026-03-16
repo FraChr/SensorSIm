@@ -105,7 +105,7 @@
                                 <Border Background="LightBlue" Padding="4" BorderBrush="DarkBlue" BorderThickness="1">
                                     <!--<TextBlock Text="{Binding Name}" />-->
                                     <Image Width="28" Height="28" 
-                                           Source="{Binding SensorImage.ImagePath, Converter={StaticResource ImageConverter}}"/>
+                                           Source="{Binding SensorImage.ImagePath, Converter={StaticResource ImageConverter}}" ToolTip="{Binding Name}"/>
                                 </Border>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
