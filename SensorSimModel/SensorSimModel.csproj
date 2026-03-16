@@ -36,6 +36,11 @@
       <Content Include="Assets\Images\Sensor\Temperature.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Assets\Images\Sensor\Default.bmp" />
+      <None Remove="Assets\Images\Sensor\Default.png" />
+      <Content Include="Assets\Images\Sensor\Default.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>

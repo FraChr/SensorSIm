@@ -27,21 +27,24 @@ public static class FactoryHelpers
                 SensorTypes.Pressure, new FactoryRegistration
                 {
                     FactoryFunc = () => new PressureSensor(),
-                    MetaData = [typeof(Water), typeof(IAir)]
+                    MetaData = [typeof(Water), typeof(IAir)],
+                    DefaultImagePath = SensorImagePaths.PressureSensorImg
                 }
             },
             {
                 SensorTypes.Depth, new FactoryRegistration
                 {
                     FactoryFunc = () => new DeapthSensor(),
-                    MetaData = [typeof(Water)]
+                    MetaData = [typeof(Water)],
+                    DefaultImagePath = SensorImagePaths.DepthSensorImg
                 }
             },
             {
                 SensorTypes.Salinity,  new FactoryRegistration
                 {
                     FactoryFunc = () => new SalinitySensor(),
-                    MetaData = [typeof(Ocean)]
+                    MetaData = [typeof(Ocean)],
+                    DefaultImagePath = SensorImagePaths.SalinitySensorImg
                 }
             }
         };

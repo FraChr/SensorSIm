@@ -1,11 +1,12 @@
-﻿using SensorSimModel.Interfaces;
+﻿using Resources;
+using SensorSimModel.Interfaces;
 using SensorSimModel.UI.Sensor;
 
 namespace SensorSimModel.Sensor;
 
 public class DeapthSensor : SensorBase, ISensor
-{ 
-    public ImageModel SensorImage { get; set; }
+{
+    public ImageModel SensorImage { get; set; } = new (SensorImagePaths.DepthSensorImg);
     private string Id { get; } = Guid.NewGuid().ToString();   
     private double? Depth { get; set; }
     public void UpdateFromEnvironment(IEnvironment environment)
@@ -30,6 +31,7 @@ public class DeapthSensor : SensorBase, ISensor
         {
             Type = SensorTypes.Depth,
             Name = nameof(SensorTypes.Depth),
+            SensorImage = SensorImage,
             Value = Depth.HasValue
             ? $"{Depth.Value:F2} Meters"
             : "N/A"

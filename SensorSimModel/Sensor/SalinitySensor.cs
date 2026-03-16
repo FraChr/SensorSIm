@@ -1,11 +1,12 @@
-﻿using SensorSimModel.Interfaces;
+﻿using Resources;
+using SensorSimModel.Interfaces;
 using SensorSimModel.UI.Sensor;
 
 namespace SensorSimModel.Sensor;
 
 public class SalinitySensor : SensorBase, ISensor
 {
-    public ImageModel SensorImage { get; set; }
+    public ImageModel SensorImage { get; set; } = new (SensorImagePaths.SalinitySensorImg);
     private string Id { get; } = Guid.NewGuid().ToString();
     private double? Salinity { get; set; }
 
@@ -31,6 +32,7 @@ public class SalinitySensor : SensorBase, ISensor
         {
             Type = SensorTypes.Salinity,
             Name = nameof(SensorTypes.Salinity),
+            SensorImage = SensorImage,
             Value = Salinity.HasValue
             ? $"{Salinity.Value} Saltiness"
             : "N/A"

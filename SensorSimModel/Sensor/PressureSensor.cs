@@ -1,11 +1,12 @@
-﻿using SensorSimModel.Interfaces;
+﻿using Resources;
+using SensorSimModel.Interfaces;
 using SensorSimModel.UI.Sensor;
 
 namespace SensorSimModel.Sensor;
 
 public class PressureSensor : SensorBase, ISensor
 {
-    public ImageModel SensorImage { get; set; }
+    public ImageModel SensorImage { get; set; } = new (SensorImagePaths.PressureSensorImg);
     private string Id { get; } = Guid.NewGuid().ToString();
     private double? Pressure { get; set; }
     public void UpdateFromEnvironment(IEnvironment environment)
@@ -30,6 +31,7 @@ public class PressureSensor : SensorBase, ISensor
         {
             Type = SensorTypes.Pressure,
             Name = nameof(SensorTypes.Pressure),
+            SensorImage = SensorImage,
             Value = Pressure.HasValue
             ? $"{Pressure.Value:F2} Bar"
             : "N/A"

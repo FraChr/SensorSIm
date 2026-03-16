@@ -6,7 +6,7 @@ namespace SensorSimModel.Sensor;
 
 public class TempSensor : SensorBase, ISensor
 {
-    public ImageModel SensorImage { get; set; } = new ImageModel(SensorImagePaths.TempSensorImg);
+    public ImageModel SensorImage { get; set; } = new (SensorImagePaths.TempSensorImg);
     private string Id { get; } = Guid.NewGuid().ToString();
     private double Temperature { get; set; }
 
