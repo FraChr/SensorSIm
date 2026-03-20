@@ -6,7 +6,7 @@ namespace SensorSimModel.Environment.WaterEnvironments;
 
 public class Ocean : Water, IOcean
 {
-    public ImageModel Image { get; set; } = new ImageModel(EnvironmentImagePaths.OceanBackground);
+    public ImageModel Image { get; set; } = new(EnvironmentImagePaths.OceanBackground);
     public double Salinity { get; set; }
     public Ocean()
     {
