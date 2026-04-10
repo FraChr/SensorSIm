@@ -1,10 +1,11 @@
-﻿using SensorSimModel.Interfaces;
+﻿using Resources;
+using SensorSimModel.Interfaces;
 
 namespace SensorSimModel.Environment.DesertEnvironments;
 
 public class SandDesert : Desert, IAir
 {
-    public ImageModel Image { get; set; }
+    public ImageModel Image { get; set; } = new(EnvironmentImagePaths.DesertBackground);
     
     private readonly Random _random = new();
     public double WindSpeed { get; set; }
@@ -20,7 +21,8 @@ public class SandDesert : Desert, IAir
         return new EnvironmentDisplayModel()
         {
             Types = EnvironmentTypes.SandDesert,
-            Name = nameof(EnvironmentTypes.SandDesert)
+            Name = nameof(EnvironmentTypes.SandDesert),
+            Image = Image
         };
     }
 

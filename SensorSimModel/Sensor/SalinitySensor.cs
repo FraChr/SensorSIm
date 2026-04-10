@@ -21,7 +21,7 @@ public class SalinitySensor : SensorBase, ISensor
     public void UpdateValue(ISensorDisplayModel display)
     {
         display.Value = Salinity.HasValue
-            ? $"{Salinity.Value} Saltiness"
+            ? $" {Salinity.Value} Saltiness"
             : "N/A";
     }
 

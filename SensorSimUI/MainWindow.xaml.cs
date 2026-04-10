@@ -19,12 +19,6 @@ public partial class MainWindow : Window
         DataContext = mainVm;
         
         _mainVm = mainVm;
-
-
-        /*var image = _mainVm.EnvironmentVm.GetEnvironmentImage();
-        img.Source = image;*/
-
-
     }
 
     private void SensorDrag(object sender, MouseEventArgs e)
