@@ -45,6 +45,10 @@
       <Content Include="Assets\Images\Environment\Desert.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Assets\Images\Sensor\Temperature\temperatureSensor.png" />
+      <Content Include="Assets\Images\Sensor\Temperature\temperatureSensor.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
